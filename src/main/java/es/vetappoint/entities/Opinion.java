@@ -15,8 +15,8 @@ public class Opinion implements Serializable {
     private int puntuacion;
     @Column(name = "Comentario")
     private String comentario;
-    private int idUsuario;
-    private int idClinica;
+    private Long idUsuario;
+    private Long idClinica;
 
     public Long getId() {
         return id;
@@ -42,19 +42,19 @@ public class Opinion implements Serializable {
         this.comentario = comentario;
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public int getIdClinica() {
+    public Long getIdClinica() {
         return idClinica;
     }
 
-    public void setIdClinica(int idClinica) {
+    public void setIdClinica(Long idClinica) {
         this.idClinica = idClinica;
     }
 
@@ -62,7 +62,7 @@ public class Opinion implements Serializable {
 
     }
 
-    public Opinion(Long id, int puntuacion, String comentario, int idUsuario, int idClinica) {
+    public Opinion(Long id, int puntuacion, String comentario, Long idUsuario, Long idClinica) {
         this.id = id;
         this.puntuacion = puntuacion;
         this.comentario = comentario;

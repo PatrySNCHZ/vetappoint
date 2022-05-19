@@ -4,7 +4,7 @@ import es.vetappoint.entities.LineasTratamiento;
 
 import java.util.List;
 
-public interface IfxLineasTratamientoDao {
+public interface LineasTratamientoDao {
     List<LineasTratamiento> findAll();
 
     LineasTratamiento findOne(Long id);

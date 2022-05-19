@@ -1,6 +1,6 @@
 package es.vetappoint.dao.impl;
 
-import es.vetappoint.dao.MascotaDAO;
+import es.vetappoint.dao.MascotaDao;
 import es.vetappoint.entities.Mascota;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository("mascotaDAOJPA")
-public class MascotaImpl implements MascotaDAO {
+public class MascotaImpl implements MascotaDao {
 
     @PersistenceContext
     private EntityManager em;

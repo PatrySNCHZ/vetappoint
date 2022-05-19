@@ -1,15 +1,16 @@
-package es.vetappoint.dao;
+package es.vetappoint.dao.impl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import es.vetappoint.dao.TratamientoDao;
 import es.vetappoint.entities.Tratamiento;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository("TratamientoDaoJPA")
-public class TratamientoDaoImpl implements IfxTratamientoDao {
+public class TratamientoDaoImpl implements TratamientoDao {
     @PersistenceContext
     private EntityManager em;
 

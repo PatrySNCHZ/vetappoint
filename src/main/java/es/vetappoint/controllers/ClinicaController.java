@@ -1,6 +1,5 @@
 package es.vetappoint.controllers;
 
-import es.vetappoint.dao.IfxClinicaDao;
 import es.vetappoint.entities.Clinica;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ClinicaController {
     @Autowired
     @Qualifier("ClinicaDaoJPA")
-    private IfxClinicaDao ClinicaDao;
+    private es.vetappoint.dao.ClinicaDao ClinicaDao;
 
     public void ClinicaController() {
     }

@@ -1,15 +1,16 @@
-package es.vetappoint.dao;
+package es.vetappoint.dao.impl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.entities.Clinica;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository("ClinicaDaoJPA")
-public class ClinicaDaoImpl implements IfxClinicaDao {
+public class ClinicaDaoImpl implements ClinicaDao {
     @PersistenceContext
     private EntityManager em;
 

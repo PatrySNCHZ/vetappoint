@@ -4,7 +4,7 @@ import es.vetappoint.entities.Tratamiento;
 
 import java.util.List;
 
-public interface IfxTratamientoDao {
+public interface TratamientoDao {
     List<Tratamiento> findAll();
 
     Tratamiento findOne(Long id);
