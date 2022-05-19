@@ -1,8 +1,6 @@
 package es.vetappoint.controllers;
 
 
-import es.vetappoint.dao.IfxTratamientoDao;
-
 import java.util.Map;
 
 import es.vetappoint.entities.Tratamiento;
@@ -17,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class TratamientoController {
     @Autowired
     @Qualifier("TratamientoDaoJPA")
-    private IfxTratamientoDao TratamientoDao;
+    private es.vetappoint.dao.TratamientoDao TratamientoDao;
 
     public void TratamientoController() {
     }

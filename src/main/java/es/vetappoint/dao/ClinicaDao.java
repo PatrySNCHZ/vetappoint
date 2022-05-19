@@ -4,7 +4,7 @@ package es.vetappoint.dao;
 import es.vetappoint.entities.Clinica;
 import java.util.List;
 
-public interface IfxClinicaDao {
+public interface ClinicaDao {
     List<Clinica> findAll();
 
    Clinica findOne(Long id);

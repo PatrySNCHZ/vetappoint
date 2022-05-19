@@ -1,6 +1,6 @@
 package es.vetappoint.controllers;
 
-import es.vetappoint.dao.MascotaDAO;
+import es.vetappoint.dao.MascotaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ public class MascotaController {
 
     @Autowired
     @Qualifier("mascotaDAOJPA")
-    private MascotaDAO mascotaDAO;
+    private MascotaDao mascotaDAO;
 
     @GetMapping("/listamascotas")
     public String listarMascotas(Model modelo){

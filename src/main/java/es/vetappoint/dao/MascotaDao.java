@@ -4,7 +4,7 @@ import es.vetappoint.entities.Mascota;
 
 import java.util.List;
 
-public interface MascotaDAO {
+public interface MascotaDao {
 
     public List<Mascota> findAll();
     public Mascota findOne(Long id);
