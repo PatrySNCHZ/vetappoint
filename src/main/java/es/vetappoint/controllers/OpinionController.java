@@ -1,0 +1,42 @@
+package es.vetappoint.controllers;
+
+import es.vetappoint.dao.OpinionDao;
+import es.vetappoint.dao.UsuarioDao;
+import es.vetappoint.entities.Opinion;
+import es.vetappoint.entities.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Map;
+
+public class OpinionController {
+
+    @Autowired
+    @Qualifier("OpinionDaoJPA")
+    private OpinionDao opinionDao;
+
+    @GetMapping("/listaopinion")
+    public String listaTodas(Model modelo) {
+        modelo.addAttribute("titulopest", "Opinion");
+        modelo.addAttribute("titulo", "Listado de opiniones");
+        modelo.addAttribute("opiniones", opinionDao.findAll());
+        return "lista_opiniones";
+    }
+
+    @GetMapping({"/opinion/{id}"})
+    public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
+        modelo.put("titulopest", "Opinion");
+        modelo.put("titulo", "Perfil de opinion");
+        Opinion opinion = null;
+        if (id > 0L) {
+            opinion = this.opinionDao.findOne(id);
+            modelo.put("opinion", opinion);
+            return "form_opinion";
+        } else {
+            return "redirect:/listaopinion";
+        }
+    }
+}
