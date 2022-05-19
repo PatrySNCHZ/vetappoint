@@ -18,7 +18,7 @@ public class ClinicaController {
     public void ClinicaController() {
     }
 
-    @GetMapping({"/listaClinicas"})
+    @GetMapping("/listaclinicas")
     public String litarTodos(Model modelo) {
         modelo.addAttribute("titulopes", "Clinicas");
         modelo.addAttribute("titulo", "Listado de Clinicas");
@@ -26,7 +26,7 @@ public class ClinicaController {
         return "lista_clinicas";
     }
 
-    @GetMapping({"/clinica/{id}"})
+    @GetMapping("/clinica/{id}")
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopes", "Clinica");
         modelo.put("titulo", "Perfil de clinica");

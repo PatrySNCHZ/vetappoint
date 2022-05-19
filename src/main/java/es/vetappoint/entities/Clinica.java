@@ -38,7 +38,6 @@ public class Clinica implements Serializable {
     private String tlf2;
     @Column(name="Tlf_urgencia")
     private String tlfu;
-    private String dni;
     @Column(name="Direccion1")
     private String linea1;
     @Column(name="Direccion2")
@@ -126,14 +125,6 @@ public class Clinica implements Serializable {
         this.tlfu = tlfu;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
     public String getLinea1() {
         return linea1;
     }
@@ -196,5 +187,27 @@ public class Clinica implements Serializable {
 
     public void setCreadoEl(Date creadoEl) {
         this.creadoEl = creadoEl;
+    }
+
+    @Override
+    public String toString() {
+        return "Clinica{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", cif='" + cif + '\'' +
+                ", clave='" + clave + '\'' +
+                ", email='" + email + '\'' +
+                ", tlf1='" + tlf1 + '\'' +
+                ", tlf2='" + tlf2 + '\'' +
+                ", tlfu='" + tlfu + '\'' +
+                ", linea1='" + linea1 + '\'' +
+                ", linea2='" + linea2 + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", cp='" + cp + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", horario='" + horario + '\'' +
+                ", granularidad='" + granularidad + '\'' +
+                ", creadoEl=" + creadoEl +
+                '}';
     }
 }

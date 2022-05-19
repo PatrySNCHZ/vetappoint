@@ -9,7 +9,7 @@ public class Veterinario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idVeterinario", nullable = false)
+    @Column(name = "id_veterinario", nullable = false)
     private Long id;
     @Column(name = "Nombre")
     private String nombre;

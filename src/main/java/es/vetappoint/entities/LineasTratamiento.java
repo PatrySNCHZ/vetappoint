@@ -11,16 +11,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity(name = "tratamientos")
-@Table(name = "tratamientos")
+@Entity(name = "linea_tratamientos")
+@Table(name = "linea_tratamientos")
 public class LineasTratamiento implements Serializable {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    @Column(name = "idLineas_tratamiento",
+    @Column(name = "id_lineatratamiento",
             nullable = false)
-    private Long id;
+    private Long id_lineatratamiento;
 
     private Long idTratamiento;
     @Column(name = "Medicamento")
@@ -40,12 +40,12 @@ public class LineasTratamiento implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
+    public Long getId_lineatratamiento() {
+        return id_lineatratamiento;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_lineatratamiento(Long id_lineatratamiento) {
+        this.id_lineatratamiento = id_lineatratamiento;
     }
 
     public Long getIdTratamiento() {
@@ -94,5 +94,18 @@ public class LineasTratamiento implements Serializable {
 
     public void setCreadoEl(Date creadoEl) {
         this.creadoEl = creadoEl;
+    }
+
+    @Override
+    public String toString() {
+        return "LineasTratamiento{" +
+                "id=" + id_lineatratamiento +
+                ", idTratamiento=" + idTratamiento +
+                ", medicamento='" + medicamento + '\'' +
+                ", posologia='" + posologia + '\'' +
+                ", fechaInicio='" + fechaInicio + '\'' +
+                ", fechaFin='" + fechaFin + '\'' +
+                ", creadoEl=" + creadoEl +
+                '}';
     }
 }
