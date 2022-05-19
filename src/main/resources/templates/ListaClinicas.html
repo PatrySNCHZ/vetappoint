@@ -12,7 +12,53 @@
     <title th:text=""></title>
 </head>
 <body>
-<h1>Hello, World!</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Bienvenido, Usuario</h1>
+        <p class="lead">Aquí le mostramos una lista de clínicas cercanas a usted</p>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="container">
+        <h1 th:text="${titulo}"></h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre Clínica</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Teléfono 2</th>
+                <th>Teléfono Urgencias</th>
+                <th>Localidad</th>
+                <th>Dirección</th>
+                <th>Dirección 2</th>
+                <th>Horario</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cli : ${clinicas}">
+                <td th:text="${cli.nombre}"></td>
+                <td th:text="${cli.email}"></td>
+                <td th:text="${cli.tlf1}"></td>
+                <td th:text="${cli.tlf2}"></td>
+                <td th:text="${cli.tlfu}"></td>
+                <td th:text="${cli.localidad}"></td>
+                <td th:text="${cli.linea1}"></td>
+                <td th:text="${cli.linea2}"></td>
+                <td th:text="${cli.horario}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</body>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

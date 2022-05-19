@@ -9,10 +9,74 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title th:text=""></title>
+    <title th:text="${titulo}"></title>
 </head>
 <body>
-<h1>Hello, World!</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">VetAppOint</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Mi perfil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mis citas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mis mascotas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mis clinicas</a>
+            </li>
+            <li class="nav-item pull-right">
+                <a class="nav-link" href="#">Cerrar sesion</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Lista de clientes</h1>
+        <p class="lead">Estos son los clientes que os prefieren a ti antes que a otras clinicas! Echa un vistazo a sus perfiles y mascotas</p>
+    </div>
+
+
+
+
+</div>
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Mascotas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="usu : ${usuarios}">
+            <td th:text="${usu.nombre}"></td>
+            <td th:text="${usu.apellidos}"></td>
+            <td th:text="${usu.email}"></td>
+            <td th:text="${usu.tlf}"></td>
+            <td href="/listamascotas">Sus mascotas</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

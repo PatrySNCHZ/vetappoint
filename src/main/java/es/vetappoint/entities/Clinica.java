@@ -34,7 +34,7 @@ public class Clinica implements Serializable {
     private String email;
     @Column(name="Tlf1")
     private String tlf1;
-    @Column(name="Tlf1")
+    @Column(name="Tlf2")
     private String tlf2;
     @Column(name="Tlf_urgencia")
     private String tlfu;
@@ -54,10 +54,7 @@ public class Clinica implements Serializable {
     @Column(name="Granularidad")
     private String granularidad;
 
-    @Column(
-            name = "creado_el",
-            columnDefinition = "date DEFAULT (curdate())"
-    )
+    @Column(name = "creado_el", columnDefinition = "date DEFAULT (curdate())")
     @Temporal(TemporalType.DATE)
     private Date creadoEl;
     private static final long serialVersionUID = 1L;

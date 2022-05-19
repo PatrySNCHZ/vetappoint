@@ -9,7 +9,7 @@ public interface ClinicaDao {
 
    Clinica findOne(Long id);
 
-    void save(Clinica usuario);
+    void save(Clinica clinica);
 
     void delete(Long id);
 }
