@@ -6,12 +6,14 @@ import es.vetappoint.dao.VeterinarioDao;
 import es.vetappoint.entities.Veterinario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Map;
 
+@Controller
 public class VeterinarioController {
     @Autowired
     @Qualifier("VeterinarioDaoJPA")
