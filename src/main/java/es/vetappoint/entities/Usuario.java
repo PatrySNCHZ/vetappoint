@@ -33,6 +33,25 @@ public class Usuario implements Serializable {
     private String cp;
     @Column(name = "Provincia")
     private String provincia;
+    private static final Long serialVersionUID=1L;
+
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellidos, String clave, String email, String tlf, String dni, String dir1, String dir2, String localidad, String cp, String provincia) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.clave = clave;
+        this.email = email;
+        this.tlf = tlf;
+        this.dni = dni;
+        this.dir1 = dir1;
+        this.dir2 = dir2;
+        this.localidad = localidad;
+        this.cp = cp;
+        this.provincia = provincia;
+    }
 
     public Long getIdUsuario() {
         return id;
@@ -130,23 +149,8 @@ public class Usuario implements Serializable {
         this.provincia = provincia;
     }
 
-    public Usuario(Long idUsuario, String nombre, String apellidos, String clave, String email, String tlf, String dni, String dir1, String dir2, String localidad, String cp, String provincia) {
-        this.id = idUsuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.clave = clave;
-        this.email = email;
-        this.tlf = tlf;
-        this.dni = dni;
-        this.dir1 = dir1;
-        this.dir2 = dir2;
-        this.localidad = localidad;
-        this.cp = cp;
-        this.provincia = provincia;
-    }
 
-    public Usuario() {
-    }
+
 
     @Override
     public String toString() {

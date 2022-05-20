@@ -11,38 +11,41 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository("ClinicaDaoJPA")
 public class ClinicaDaoImpl implements ClinicaDao {
+
     @PersistenceContext
     private EntityManager em;
 
-    public ClinicaDaoImpl() {
-    }
-
     @Transactional(
             readOnly = true
     )
+    @Override
     public List<Clinica> findAll() {
-        return this.em.createQuery("from Clinica").getResultList();
+        List<Clinica> lista = em.createQuery("from clinicas").getResultList();
+        return lista;
     }
 
     @Transactional(
             readOnly = true
     )
+    @Override
     public Clinica findOne(Long id) {
-        return (Clinica) this.em.find(Clinica.class, id);
+        return em.find(Clinica.class, id);
     }
 
     @Transactional
+    @Override
     public void save(Clinica clinica) {
         if (clinica.getId() != null && clinica.getId() > 0L) {
-            this.em.merge(clinica);
+            em.merge(clinica);
         } else {
-            this.em.persist(clinica);
+            em.persist(clinica);
         }
 
     }
 
     @Transactional
+    @Override
     public void delete(Long id) {
-        this.em.remove(this.findOne(id));
+        em.remove(this.findOne(id));
     }
 }

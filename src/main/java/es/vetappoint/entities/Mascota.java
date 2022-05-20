@@ -1,6 +1,5 @@
 package es.vetappoint.entities;
 
-import jdk.jfr.Enabled;
 
 import javax.persistence.*;
 import java.io.Serializable;

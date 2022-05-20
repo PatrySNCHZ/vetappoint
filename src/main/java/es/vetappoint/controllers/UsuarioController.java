@@ -20,7 +20,6 @@ public class UsuarioController {
 
     @GetMapping("/listausuarios")
     public String listaTodas(Model modelo) {
-        modelo.addAttribute("titulopest", "Usuario");
         modelo.addAttribute("titulo", "Listado de usuarios");
         modelo.addAttribute("usuarios", usuarioDao.findAll());
         return "lista_usuarios";

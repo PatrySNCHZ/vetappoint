@@ -18,7 +18,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
     @Transactional(readOnly = true)
     @Override
     public List<Usuario> findAll() {
-        return em.createQuery("from usuarios").getResultList();
+        List<Usuario> lista = em.createQuery("from usuarios").getResultList();
+
+        return lista;
     }
 
     @Transactional(readOnly = true)
