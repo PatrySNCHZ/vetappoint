@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository("OpinionDao")
+@Repository("OpinionDaoJPA")
 public class OpinionDaoImpl implements OpinionDao {
 
     @PersistenceContext

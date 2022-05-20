@@ -1,5 +1,6 @@
 package es.vetappoint.controllers;
 
+import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.entities.Clinica;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ClinicaController {
     @Autowired
     @Qualifier("ClinicaDaoJPA")
-    private es.vetappoint.dao.ClinicaDao ClinicaDao;
+    private ClinicaDao clinicaDao;
 
-    public void ClinicaController() {
-    }
 
     @GetMapping("/listaclinicas")
-    public String litarTodos(Model modelo) {
+    public String listarClinicas(Model modelo) {
         modelo.addAttribute("titulopes", "Clinicas");
         modelo.addAttribute("titulo", "Listado de Clinicas");
-        modelo.addAttribute("clinicas", this.ClinicaDao.findAll());
+        modelo.addAttribute("clinicas", clinicaDao.findAll());
         return "lista_clinicas";
     }
 
@@ -32,7 +31,7 @@ public class ClinicaController {
         modelo.put("titulo", "Perfil de clinica");
         Clinica clinica = null;
         if (id > 0L) {
-           clinica = this.ClinicaDao.findOne(id);
+           clinica = this.clinicaDao.findOne(id);
             modelo.put("clinica", clinica);
             return "form_clinica";
         } else {
