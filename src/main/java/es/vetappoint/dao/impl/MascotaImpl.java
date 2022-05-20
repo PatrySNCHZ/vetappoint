@@ -19,7 +19,7 @@ public class MascotaImpl implements MascotaDao {
     @Transactional(readOnly= true)
     @Override
     public List<Mascota> findAll() {
-        List<Mascota> lista = em.createQuery("from mascotas").getResultList();
+        List<Mascota> lista = em.createQuery("from Mascota").getResultList();
         return lista;
     }
 

@@ -13,6 +13,7 @@
 </head>
 <body>
 <h1>Hello, World!</h1>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">VetAppOint</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,48 +43,81 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Explora nuestras clínicas</h1>
-        <p class="lead"></p>
+        <h1 class="display-4">Bienvenido, USUARIO</h1>
+        <p class="lead">Estas son tus citas ¡Recuerda cancelarla si finalmente no puedes asistir!</p>
     </div>
 
 
 
 
 </div>
+
 <div class="container">
-    <form>
-        <h2>Búsqueda</h2>
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Provincia</label>
-            <select class="form-control" id="exampleFormControlSelect2">
-                <option>Sevilla</option>
+    <div class="sidebar">
+        <h2>Próximas Citas</h2>
+        <div class="card" style="width: 18rem;">
 
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect3">Localidad</label>
-            <select class="form-control" id="exampleFormControlSelect3">
-                <option>Utrera</option>
+            <div class="card-body">
+                <h5 class="card-title">Fecha</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Hora</li>
+                <li class="list-group-item">Mascota</li>
+                <li class="list-group-item">Clinica</li>
+                <li class="list-group-item">Veterinario</li>
 
-
-            </select>
-        </div>
-        <button type="button" class="btn btn-primary">Buscar</button>
-        <button type="button" class="btn btn-primary">Eliminar filtro</button>
-    </form>
-</div>
-<div class="container">
-    <div class="card" style="width: 25rem;">
-        <img src="https://bensvet.com.br/wp-content/uploads/2019/04/como-montar-uma-clinica-veterinaria-min.jpg" alt="...">
-        <div class="card-body">
-            <p class="card-text">Clinica Vet Del Rocío</p>
-            <p class="card-text">Sevilla</p>
-            <p class="card-text">Utrera</p>
-
-            <a href="#" class="card-link">Ver perfil de clínica</a>
-            <a href="#" class="card-link">Dejar una opinión</a>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Cancelar cita</a>
+            </div>
         </div>
     </div>
+
+    <div class="container">
+        <form>
+            <h2>Solicitar cita</h2>
+            <div class="Fecha">
+                <label for="exampleFormControlInput1">Fecha</label>
+                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+
+            <div class="Hora">
+                <label for="exampleFormControlSelect1">Hora</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>12:00</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Provincia</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Sevilla</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Localidad</label>
+                <select class="form-control" id="exampleFormControlSelect3">
+                    <option>Utrera</option>
+
+                </select>
+                <label for="exampleFormControlSelect4">Clinica</label>
+                <select class="form-control" id="exampleFormControlSelect4">
+                    <option>Clinica Vet del Rocio</option>
+
+                </select>
+                <label for="exampleFormControlSelect5">Veterinario</label>
+                <select class="form-control" id="exampleFormControlSelect5">
+                    <option>Ramón Del Valle </option>
+
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary">Solicitar cita</button>
+        </form>
+    </div>
+
+
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -19,7 +19,7 @@ public class HistorialVetDaoImpl implements HistorialVetDao {
     @Transactional(readOnly = true)
     @Override
     public List<HistorialVet> findAll() {
-        return em.createQuery("from historial_veterinario").getResultList();
+        return em.createQuery("from HistorialVet").getResultList();
     }
 
     @Transactional(readOnly = true)

@@ -4,7 +4,7 @@ package es.vetappoint.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name="mascotas")
+@Entity
 @Table(name="mascotas")
 public class Mascota implements Serializable {
 

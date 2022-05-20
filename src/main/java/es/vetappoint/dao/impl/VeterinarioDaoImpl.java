@@ -18,7 +18,7 @@ public class VeterinarioDaoImpl implements VeterinarioDao {
     @Transactional(readOnly = true)
     @Override
     public List<Veterinario> findAll() {
-        return em.createQuery("from veterinarios").getResultList();
+        return em.createQuery("from Veterinario").getResultList();
     }
 
     @Transactional(readOnly = true)

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Entity(name = "citas")
+@Entity
 @Table(name = "citas")
 public class Cita implements Serializable {
 

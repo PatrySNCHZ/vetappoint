@@ -19,7 +19,7 @@ public class OpinionDaoImpl implements OpinionDao {
     @Transactional(readOnly = true)
     @Override
     public List<Opinion> findAll() {
-        return em.createQuery("from opiniones").getResultList();
+        return em.createQuery("from Opinion").getResultList();
     }
 
     @Transactional(readOnly = true)

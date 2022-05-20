@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity(name = "linea_tratamientos")
+@Entity
 @Table(name = "linea_tratamientos")
 public class LineasTratamiento implements Serializable {
     @Id
