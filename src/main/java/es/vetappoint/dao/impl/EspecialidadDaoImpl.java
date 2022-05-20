@@ -19,7 +19,7 @@ public class EspecialidadDaoImpl implements EspecialidadDao {
     @Transactional(readOnly = true)
     @Override
     public List<Especialidad> findAll() {
-        return em.createQuery("from especialidades").getResultList();
+        return em.createQuery("from Especialidad").getResultList();
     }
 
     @Transactional(readOnly = true)

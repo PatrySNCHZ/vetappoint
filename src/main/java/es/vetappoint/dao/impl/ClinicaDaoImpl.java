@@ -20,7 +20,7 @@ public class ClinicaDaoImpl implements ClinicaDao {
     )
     @Override
     public List<Clinica> findAll() {
-        List<Clinica> lista = em.createQuery("from clinicas").getResultList();
+        List<Clinica> lista = em.createQuery("from Clinica").getResultList();
         return lista;
     }
 

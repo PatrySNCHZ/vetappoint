@@ -3,7 +3,7 @@ package es.vetappoint.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "historial_veterinario")
+@Entity
 @Table(name = "historial_veterinario")
 public class HistorialVet implements Serializable {
 

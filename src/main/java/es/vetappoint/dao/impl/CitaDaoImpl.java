@@ -20,7 +20,7 @@ public class CitaDaoImpl implements CitaDao {
     @Transactional(readOnly = true)
     @Override
     public List<Cita> findAll() {
-        return em.createQuery("from citas").getResultList();
+        return em.createQuery("from Cita").getResultList();
     }
 
     @Transactional(readOnly = true)

@@ -35,7 +35,7 @@ public class ClinicaController {
             modelo.put("clinica", clinica);
             return "form_clinica";
         } else {
-            return "redirect:/listaClinica";
+            return "redirect:/lista_clinicas";
         }
     }
 }
