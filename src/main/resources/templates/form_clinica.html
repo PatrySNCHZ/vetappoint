@@ -55,7 +55,7 @@
             <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
         </ul>
     </div>
-    <form th:action="@{/form}" th:object="${clinica}" method="post">
+    <form th:action="@{/guardar/clinica}" th:object="${clinica}" method="post">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
@@ -161,6 +161,7 @@
 
         <div class="form-group row">
             <div class="col-sm-6">
+                <input type="hidden" th:field="*{id}" id="clinicaId">
                 <input type="submit" value="Editar" class="btn btn-primary" />
             </div>
         </div>

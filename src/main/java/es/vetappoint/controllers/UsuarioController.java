@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -59,6 +61,13 @@ public class UsuarioController {
 
         usuarioDao.delete(id);
 
+        return "redirect:/listausuarios";
+    }
+
+    @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
+    public String guardar(Usuario usuario, Model model){
+
+        usuarioDao.save(usuario);
         return "redirect:/listausuarios";
     }
 }
