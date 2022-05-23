@@ -60,6 +60,9 @@
             <th>Email</th>
             <th>Teléfono</th>
             <th>Mascotas</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+
         </tr>
         </thead>
         <tbody>
@@ -68,7 +71,10 @@
             <td th:text="${usu.apellidos}"></td>
             <td th:text="${usu.email}"></td>
             <td th:text="${usu.tlf}"></td>
-            <td href="/listamascotas">Sus mascotas</td>
+            <td><a href="/listamascotas">Sus mascotas</a></td>
+
+            <td><a th:href="@{/editar/usuario/{id}(id=${usu.id})}">Editar</a></td>
+            <td><a th:href="@{/eliminar/usuario/{id}(id=${usu.id})}">Eliminar</a></td>
         </tr>
 
         </tbody>
