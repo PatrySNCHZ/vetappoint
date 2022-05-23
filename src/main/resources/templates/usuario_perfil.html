@@ -57,48 +57,47 @@
             <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
 
             <div class=" col-md-9 col-lg-9 ">
-                <table class="table table-user-information">
+                <table th:object="${usuario}"class="table table-user-information">
                     <tbody>
                     <tr>
                         <td>Nombre:</td>
-                        <td></td>
+                        <td th:text="${usuario.nombre}"></td>
                     </tr>
                     <tr>
                         <td>Apellidos:</td>
-                        <td></td>
+                        <td th:text="${usuario.apellidos}"></td>
                     </tr>
                     <tr>
                         <td>DNI</td>
-                        <td></td>
+                        <td th:text="${usuario.dni}"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                        <td th:text="${usuario.email}"></td>
                     </tr>
                     <tr>
                     <tr>
                         <td>Telefono</td>
-                        <td></td>
+                        <td th:text="${usuario.tlf}"></td>
                     </tr>
                     <tr>
                         <td>Direccion</td>
                         <td>
-                            dirección1
-                            <br>
-                            direccion2
+                            <p th:text="${usuario.dir1}"></p>
+                            <p th:text="${usuario.dir2}"></p>
                         </td>
                     </tr>
                     <tr>
                         <td>Localidad</td>
-                        <td></td>
+                        <td th:text="${usuario.localidad}"></td>
                     </tr>
                     <tr>
                         <td>Provincia</td>
-                        <td></td>
+                        <td th:text="${usuario.provincia}"></td>
                     </tr>
                     <tr>
                         <td>Codigo Postal</td>
-                        <td></td>
+                        <td th:text="${usuario.cp}"></td>
                     </tr>
                     </tbody>
                 </table>

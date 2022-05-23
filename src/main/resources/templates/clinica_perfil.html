@@ -12,7 +12,7 @@
     <title th:text="${titulo}"></title>
 </head>
 <body>
-<h1>Hello, World!</h1>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">VetAppOint</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Bienvenido, CLINICA</h1>
+    <h1 class="display-4" th:text="${titulo}"></h1>
     <p class="lead"></p>
   </div>
 </div>
@@ -51,70 +51,68 @@
 <div class="container">
 
   <div class="panel-heading">
-    <h3 class="panel-title">CLINICA TAL</h3>
+
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
 
       <div class=" col-md-9 col-lg-9 ">
-        <table class="table table-user-information">
+        <table th:object="${clinica}" class="table table-user-information">
+          <h3 class="panel-title" th:text="${clinica.nombre}"></h3>
           <tbody>
           <tr>
             <td>Nombre:</td>
-            <td></td>
+            <td ></td>
           </tr>
           <tr>
             <td>CIF:</td>
-            <td></td>
+            <td th:text="${clinica.cif}"></td>
           </tr>
           <tr>
             <td>Email</td>
-            <td><a href="mailto:info@support.com">info@support.com</a></td>
+            <td th:text="${clinica.email}"></td>
           </tr>
           <tr>
             <td>Direccion</td>
             <td>
-              dirección1
-              <br>
-              direccion2
+              <p th:text="${clinica.linea1}"></p>
+              <p th:text="${clinica.linea2}"></p>
             </td>
           </tr>
           <tr>
           <tr>
             <td>Telefono</td>
             <td>
-              TELEFONO 1
-              <br>
-              TELEFONO 2
+              <p th:text="${clinica.tlf1}"></p>
+              <p th:text="${clinica.tlf2}"></p>
             </td>
           </tr>
 
           <tr>
             <td>Teléfono URGENCIAS 24H</td>
-            <td>
+            <td th:text="${clinica.tlfu}"></p>>
 
             </td>
           </tr>
           <tr>
             <td>Localidad</td>
-            <td></td>
+            <td th:text="${clinica.localidad}"></td>
           </tr>
           <tr>
             <td>Provincia</td>
-            <td></td>
+            <td th:text="${clinica.provincia}"></td>
 
           </tr>
           <tr>
             <td>Codigo Postal</td>
-            <td></td>
+            <td th:text="${clinica.cp}"></td>
 
           </tr>
           <tr>
             <td>Horario</td>
-            <td>
-              Lunes a Viernes<br>
-              De 8:30 a 14:30
+            <td th:text="${clinica.horario}">
+
             </td>
           </tr>
 

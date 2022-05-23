@@ -14,8 +14,8 @@
 <body>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido, Usuario</h1>
-        <p class="lead">Aquí le mostramos una lista de clínicas cercanas a usted</p>
+        <h1 class="display-4">Bienvenido...</h1>
+        <p class="lead">Aquí le mostramos nuestra lista de clinicas disponibles</p>
     </div>
 </div>
 
@@ -37,6 +37,9 @@
                 <th>Dirección</th>
                 <th>Dirección 2</th>
                 <th>Horario</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+
 
             </tr>
             </thead>
@@ -51,6 +54,9 @@
                 <td th:text="${cli.linea1}"></td>
                 <td th:text="${cli.linea2}"></td>
                 <td th:text="${cli.horario}"></td>
+
+                <td><a th:href="@{/editar/clinica/{id}(id=${cli.id})}">Editar</a></td>
+                <td><a th:href="@{/eliminar/clinica/{id}(id=${cli.id})}">Eliminar</a></td>
             </tr>
             </tbody>
         </table>

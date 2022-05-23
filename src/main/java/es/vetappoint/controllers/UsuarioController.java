@@ -25,17 +25,40 @@ public class UsuarioController {
         return "lista_usuarios";
     }
 
-    @GetMapping({"/usuario/{id}"})
+    @GetMapping({"/editar/usuario/{id}"})
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopest", "Usuario");
-        modelo.put("titulo", "Perfil de usuario");
+        modelo.put("titulo", "Editar usuario");
         Usuario usuario = null;
         if (id > 0L) {
             usuario = this.usuarioDao.findOne(id);
             modelo.put("usuario", usuario);
             return "form_usuario";
         } else {
-            return "redirect:/listausuario";
+            return "redirect:/listausuarios";
         }
+    }
+
+    @GetMapping({"/usuario/{id}"})
+    public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
+        modelo.put("titulopest", "Usuario");
+        modelo.put("titulo", "Perfil de usuario");
+        Usuario usuario = null;
+        if (id > 0L) {
+            usuario = this.usuarioDao.findOne(id);
+            modelo.put("usuario", usuario);
+            return "usuario_perfil";
+        } else {
+            return "redirect:/listausuarios";
+        }
+    }
+
+
+    @GetMapping({"/eliminar/usuario/{id}"})
+    public String borrar(@PathVariable("id") Long id, Model modelo) {
+
+        usuarioDao.delete(id);
+
+        return "redirect:/listausuarios";
     }
 }
