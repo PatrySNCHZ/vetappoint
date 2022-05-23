@@ -36,7 +36,7 @@ public class MascotaController {
         if (id > 0L) {
             mascota = this.mascotaDAO.findOne(id);
             modelo.put("mascota", mascota);
-            return "mascota_perfil";
+            return "form_mascota";
         } else {
             return "redirect:/listamascotas";
         }
