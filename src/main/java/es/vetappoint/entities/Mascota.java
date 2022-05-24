@@ -40,6 +40,11 @@ public class Mascota implements Serializable {
         return id;
     }
 
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getIdpropietario() {
         return idpropietario;
     }
@@ -48,9 +53,6 @@ public class Mascota implements Serializable {
         this.idpropietario = idpropietario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFoto() {
         return foto;

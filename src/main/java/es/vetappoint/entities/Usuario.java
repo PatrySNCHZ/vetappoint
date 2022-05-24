@@ -53,12 +53,12 @@ public class Usuario implements Serializable {
         this.provincia = provincia;
     }
 
-    public Long getIdUsuario() {
+    public Long getId() {
         return id;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.id = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {

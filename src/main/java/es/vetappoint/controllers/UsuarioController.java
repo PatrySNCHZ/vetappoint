@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -25,17 +27,47 @@ public class UsuarioController {
         return "lista_usuarios";
     }
 
-    @GetMapping({"/usuario/{id}"})
+    @GetMapping({"/editar/usuario/{id}"})
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopest", "Usuario");
-        modelo.put("titulo", "Perfil de usuario");
+        modelo.put("titulo", "Editar usuario");
         Usuario usuario = null;
         if (id > 0L) {
             usuario = this.usuarioDao.findOne(id);
             modelo.put("usuario", usuario);
             return "form_usuario";
         } else {
-            return "redirect:/listausuario";
+            return "redirect:/lista_usuarios";
         }
+    }
+
+    @GetMapping({"/usuario/{id}"})
+    public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
+        modelo.put("titulopest", "Usuario");
+        modelo.put("titulo", "Perfil de usuario");
+        Usuario usuario = null;
+        if (id > 0L) {
+            usuario = this.usuarioDao.findOne(id);
+            modelo.put("usuario", usuario);
+            return "usuario_perfil";
+        } else {
+            return "redirect:/lista_usuarios";
+        }
+    }
+
+
+    @GetMapping({"/eliminar/usuario/{id}"})
+    public String borrar(@PathVariable("id") Long id, Model modelo) {
+
+        usuarioDao.delete(id);
+
+        return "redirect:/lista_usuarios";
+    }
+
+    @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
+    public String guardar(Usuario usuario, Model model){
+
+        usuarioDao.save(usuario);
+        return "redirect:/listausuarios";
     }
 }

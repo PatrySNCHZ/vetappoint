@@ -57,7 +57,7 @@
         <img th:src="${mas.foto}" class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text" th:text="${mas.nombre}"></p>
-            <a href="#" class="card-link">Ver perfil mascota</a>
+            <a th:href="@{/mascota/{id}(id=${mas.id})}" class="card-link">Ver perfil mascota</a>
             <a href="#" class="card-link">Historial médico</a>
         </div>
     </div>

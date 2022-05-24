@@ -3,12 +3,13 @@ package es.vetappoint.controllers;
 import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.entities.Clinica;
 import java.util.Map;
+
+import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ClinicaController {
@@ -25,17 +26,48 @@ public class ClinicaController {
         return "lista_clinicas";
     }
 
-    @GetMapping("/clinica/{id}")
+    @GetMapping("/editar/clinica/{id}")
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
-        modelo.put("titulopes", "Clinica");
-        modelo.put("titulo", "Perfil de clinica");
+        modelo.put("titulopes", "Editar clinica");
+        modelo.put("titulo", "Editar perfil " +  clinicaDao.findOne(id).getNombre());
         Clinica clinica = null;
         if (id > 0L) {
            clinica = this.clinicaDao.findOne(id);
             modelo.put("clinica", clinica);
             return "form_clinica";
         } else {
-            return "redirect:/lista_clinicas";
+            return "redirect:/listaclinicas";
         }
+    }
+
+    @GetMapping("/clinica/{id}")
+    public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
+        modelo.put("titulopes", "Perfil de clinica");
+        modelo.put("titulo", "Bienvenido/a al perfil de " + clinicaDao.findOne(id).getNombre());
+        Clinica clinica = null;
+        if (id > 0L) {
+            clinica = this.clinicaDao.findOne(id);
+            modelo.put("clinica", clinica);
+            return "clinica_perfil";
+        } else {
+            return "redirect:/listaclinicas";
+        }
+    }
+
+    @GetMapping({"/eliminar/clinica/{id}"})
+    public String borrar(@PathVariable("id") Long id, Model modelo) {
+
+            clinicaDao.delete(id);
+
+        return "redirect:/listaclinicas";
+    }
+
+
+    @RequestMapping(value ="/guardar/clinica", method = RequestMethod.POST)
+    public String guardar(Clinica clinica, Model model){
+
+                clinicaDao.save(clinica);
+
+        return "redirect:/listaclinicas";
     }
 }

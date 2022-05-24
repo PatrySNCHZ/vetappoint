@@ -32,7 +32,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     @Transactional
     @Override
     public void save(Usuario usuario) {
-        if (usuario.getIdUsuario() != null && usuario.getIdUsuario() > 0) {
+        if (usuario.getId() != null && usuario.getId() > 0) {
             em.merge(usuario);
         }else {
             em.persist(usuario);
