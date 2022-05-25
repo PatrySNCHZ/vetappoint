@@ -3,14 +3,9 @@ package es.vetappoint.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "clinicas")
@@ -20,7 +15,7 @@ public class Clinica implements Serializable {
             strategy = GenerationType.IDENTITY
     )
     @Column(
-            name = "idClinica",
+            name = "id_clinica",
             nullable = false
 
     )
@@ -57,6 +52,18 @@ public class Clinica implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
+
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name="clinicas_veterinarios",
+            joinColumns= @JoinColumn (name= "id_clinica"),
+            inverseJoinColumns = @JoinColumn(name="id_veterinario"))
+    private List<Veterinario> veterinarios;
+
+
 
     public Clinica() {
     }
@@ -187,6 +194,14 @@ public class Clinica implements Serializable {
 
     public void setCreadoEl(Date creadoEl) {
         this.creadoEl = creadoEl;
+    }
+
+    public List<Veterinario> getVeterinario() {
+        return veterinarios;
+    }
+
+    public void setVeterinario(List<Veterinario> veterinario) {
+        this.veterinarios = veterinario;
     }
 
     @Override

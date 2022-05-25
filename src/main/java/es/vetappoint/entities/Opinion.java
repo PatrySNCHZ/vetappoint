@@ -9,7 +9,7 @@ public class Opinion implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idOpinion", nullable = false)
+    @Column(name = "id_opinion", nullable = false)
     private Long id;
     @Column(name = "Puntuacion")
     private int puntuacion;

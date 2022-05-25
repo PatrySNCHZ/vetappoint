@@ -2,6 +2,7 @@ package es.vetappoint.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "veterinarios")
@@ -16,6 +17,14 @@ public class Veterinario implements Serializable {
     @Column(name = "Apellidos")
     private String apellidos;
     private String email;
+
+    @ManyToMany(mappedBy = "veterinarios")
+    private List<Especialidad> id_especialidad;
+
+    @ManyToMany(mappedBy = "veterinarios")
+    private List<Clinica> id_clinica;
+
+
 
     public Long getId() {
         return id;

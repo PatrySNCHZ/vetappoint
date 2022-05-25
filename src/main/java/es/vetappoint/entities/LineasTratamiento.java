@@ -2,14 +2,7 @@ package es.vetappoint.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "linea_tratamientos")
@@ -20,9 +13,12 @@ public class LineasTratamiento implements Serializable {
     )
     @Column(name = "id_lineatratamiento",
             nullable = false)
-    private Long id_lineatratamiento;
+    private Long id;
 
-    private Long idTratamiento;
+    @OneToOne
+    @JoinColumn(name="id_tratamientos")
+    private Tratamiento id_tratamientos;
+
     @Column(name = "Medicamento")
     private String medicamento;
     @Column(name = "Posologia")
@@ -32,6 +28,7 @@ public class LineasTratamiento implements Serializable {
     @Column(name = "Fecha_fin")
     private String fechaFin;
 
+
     @Column(
             name = "creado_el",
             columnDefinition = "date DEFAULT (curdate())"
@@ -40,20 +37,20 @@ public class LineasTratamiento implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
-    public Long getId_lineatratamiento() {
-        return id_lineatratamiento;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_lineatratamiento(Long id_lineatratamiento) {
-        this.id_lineatratamiento = id_lineatratamiento;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Long getIdTratamiento() {
-        return idTratamiento;
+    public Tratamiento getId_tratamiento() {
+        return id_tratamientos;
     }
 
-    public void setIdTratamiento(Long idTratamiento) {
-        this.idTratamiento = idTratamiento;
+    public void setId_tratamiento(Tratamiento id_tratamiento) {
+        this.id_tratamientos = id_tratamiento;
     }
 
     public String getMedicamento() {
@@ -99,8 +96,8 @@ public class LineasTratamiento implements Serializable {
     @Override
     public String toString() {
         return "LineasTratamiento{" +
-                "id=" + id_lineatratamiento +
-                ", idTratamiento=" + idTratamiento +
+                "id_lineatratamiento=" + id +
+                ", tratamiento=" + id_tratamientos +
                 ", medicamento='" + medicamento + '\'' +
                 ", posologia='" + posologia + '\'' +
                 ", fechaInicio='" + fechaInicio + '\'' +

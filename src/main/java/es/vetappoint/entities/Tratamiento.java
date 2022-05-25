@@ -3,14 +3,7 @@ package es.vetappoint.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tratamientos")
@@ -19,7 +12,7 @@ public class Tratamiento implements Serializable {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    @Column(name = "idTratamiento",
+    @Column(name = "id_tratamiento",
             nullable = false)
     private Long id;
 
@@ -34,6 +27,9 @@ public class Tratamiento implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
+
+    @OneToOne(mappedBy="id_tratamientos")
+    private LineasTratamiento linea_tratamiento;
 
     public Tratamiento() {
     }

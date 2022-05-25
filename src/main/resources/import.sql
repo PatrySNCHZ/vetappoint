@@ -3,10 +3,10 @@ INSERT INTO usuarios (id_usuario,nombre,apellidos,clave,email,tlf,dni,linea_1,li
 INSERT INTO usuarios (id_usuario,nombre,apellidos,clave,email,tlf,dni,linea_1,linea_2,localidad,cp,provincia) VALUES (3,'Cristina ','Gómez Puerta','abcd1234','cris65@gmail.com','7(864)021-41-72','43042177T','Rúa Anna, 13','6º C','Sevilla','25957','Sevilla');
 
 
-INSERT INTO mascotas (id_mascota, id_propietario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(1, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_propietario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(2, 1, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_propietario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(3, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_propietario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(4, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(1, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(2, 1, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(3, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(4, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
 
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (1, 'julian', 'rodriguez', 'jrod@gmail.com' );
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (2, 'pepe', 'rodriguez', 'jrod@gmail.com' );
@@ -26,6 +26,6 @@ INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuaci
 INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario) VALUES (1, 2, 2);
 INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario) VALUES (2, 1, 1);
 
-INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamiento, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(1, 1, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01')
-INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamiento, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(2, 2, 'paracetamol', 'cada 8 horas', '2009-02-12','2010-01-01')
+INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamientos, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(1, 1, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01')
+INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamientos, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(2, 2, 'paracetamol', 'cada 8 horas', '2009-02-12','2010-01-01')
 

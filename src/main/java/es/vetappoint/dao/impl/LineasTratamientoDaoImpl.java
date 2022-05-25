@@ -33,7 +33,7 @@ public class LineasTratamientoDaoImpl implements LineasTratamientoDao {
 
     @Transactional
     public void save(LineasTratamiento lineas_tratamiento) {
-        if (lineas_tratamiento.getId_lineatratamiento() != null && lineas_tratamiento.getId_lineatratamiento() > 0L) {
+        if (lineas_tratamiento.getId() != null && lineas_tratamiento.getId() > 0L) {
             this.em.merge(lineas_tratamiento);
         } else {
             this.em.persist(lineas_tratamiento);

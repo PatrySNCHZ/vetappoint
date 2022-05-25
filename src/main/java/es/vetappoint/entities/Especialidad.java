@@ -2,6 +2,7 @@ package es.vetappoint.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "especialidades")
@@ -9,10 +10,19 @@ public class Especialidad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idEspecialidad", nullable = false)
+    @Column(name = "id_especialidad", nullable = false)
     private Long id;
     @Column(name = "Nombre_esp")
     private String nombre;
+
+    @ManyToMany
+    @JoinTable(name="especialidades_veterinario",
+    joinColumns= @JoinColumn (name= "id_especialidad"),
+    inverseJoinColumns = @JoinColumn(name="id_veterinario"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"id_especialidad", "id_veterinario"}))
+    private List<Veterinario> veterinarios;
+
+
 
     public Long getId() {
         return id;

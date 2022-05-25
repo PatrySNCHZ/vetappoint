@@ -2,6 +2,7 @@ package es.vetappoint.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "historial_veterinario")
@@ -10,23 +11,25 @@ public class HistorialVet implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "idHistorial_Veterinario", nullable = false)
+    @Column(name = "id_historialvet", nullable = false)
     private Long id;
-    private Long idMascota;
-    private Long idVeterinario;
+
+
     @Column(name = "Procedimiento")
     private String procedimiento;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_mascotas")
+    private Mascota mascota;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_veterinario")
+    private Veterinario veterinario;
 
     public HistorialVet() {
 
     }
 
-    public HistorialVet(Long id, Long idMascota, Long idVeterinario, String procedimiento) {
-        this.id = id;
-        this.idMascota = idMascota;
-        this.idVeterinario = idVeterinario;
-        this.procedimiento = procedimiento;
-    }
 
     public Long getId() {
         return id;
@@ -36,20 +39,20 @@ public class HistorialVet implements Serializable {
         this.id = id;
     }
 
-    public Long getIdMascota() {
-        return idMascota;
+    public Mascota getMascota() {
+        return mascota;
     }
 
-    public void setIdMascota(Long idMascota) {
-        this.idMascota = idMascota;
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
     }
 
-    public Long getIdVeterinario() {
-        return idVeterinario;
+    public Veterinario getVeterinario() {
+        return veterinario;
     }
 
-    public void setIdVeterinario(Long idVeterinario) {
-        this.idVeterinario = idVeterinario;
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
     }
 
     public String getProcedimiento() {
@@ -64,8 +67,8 @@ public class HistorialVet implements Serializable {
     public String toString() {
         return "HistorialVeterinario{" +
                 "id=" + id +
-                ", idMascota=" + idMascota +
-                ", idVeterinario=" + idVeterinario +
+                ", idMascota=" + mascota +
+                ", idVeterinario=" + veterinario +
                 ", procedimiento='" + procedimiento + '\'' +
                 '}';
     }
