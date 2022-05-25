@@ -28,7 +28,7 @@ public class LineasTratamientoController {
         modelo.addAttribute("titulopes", "LineasTratamientos");
         modelo.addAttribute("titulo", "Listado de LineasTratamientos");
         modelo.addAttribute("lineas_tratamiento", this.lineasTratamientoDao.findAll());
-        return "lista_lineas_tratamiento";
+        return "lista_lineastratamiento";
     }
 
     @GetMapping({"/lineas_tratamiento/{id}"})

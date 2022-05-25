@@ -19,12 +19,12 @@ public class Tratamiento implements Serializable {
             nullable = false)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_mascota")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Mascota mascota;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_veterinario")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Veterinario veterinario;
@@ -37,7 +37,7 @@ public class Tratamiento implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
-    @OneToOne(mappedBy="id_tratamientos", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @OneToOne(mappedBy="tratamientos", cascade = CascadeType.ALL,  orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private LineasTratamiento linea_tratamiento;
 

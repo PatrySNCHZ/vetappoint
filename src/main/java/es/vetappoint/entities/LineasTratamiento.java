@@ -21,7 +21,7 @@ public class LineasTratamiento implements Serializable {
     @OneToOne(cascade = CascadeType.ALL,  orphanRemoval = true)
     @JoinColumn(name="id_tratamientos")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Tratamiento id_tratamientos;
+    private Tratamiento tratamientos;
 
     @Column(name = "Medicamento")
     private String medicamento;
@@ -50,11 +50,11 @@ public class LineasTratamiento implements Serializable {
     }
 
     public Tratamiento getId_tratamiento() {
-        return id_tratamientos;
+        return tratamientos;
     }
 
     public void setId_tratamiento(Tratamiento id_tratamiento) {
-        this.id_tratamientos = id_tratamiento;
+        this.tratamientos = id_tratamiento;
     }
 
     public String getMedicamento() {
@@ -101,7 +101,7 @@ public class LineasTratamiento implements Serializable {
     public String toString() {
         return "LineasTratamiento{" +
                 "id_lineatratamiento=" + id +
-                ", tratamiento=" + id_tratamientos +
+                ", tratamiento=" + tratamientos +
                 ", medicamento='" + medicamento + '\'' +
                 ", posologia='" + posologia + '\'' +
                 ", fechaInicio='" + fechaInicio + '\'' +
