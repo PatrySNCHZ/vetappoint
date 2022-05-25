@@ -22,12 +22,12 @@ public class Tratamiento implements Serializable {
     @ManyToOne
     @JoinColumn(name="id_mascota")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private String idMascota;
+    private Mascota mascota;
 
     @ManyToOne
     @JoinColumn(name="id_veterinario")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private String idVeterinario;
+    private Veterinario veterinario;
 
     @Column(
             name = "creado_el",
@@ -52,20 +52,36 @@ public class Tratamiento implements Serializable {
         this.id = id;
     }
 
-    public String getIdMascota() {
-        return idMascota;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdMascota(String idMascota) {
-        this.idMascota = idMascota;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getIdVeterinario() {
-        return idVeterinario;
+    public Mascota getMascota() {
+        return mascota;
     }
 
-    public void setIdVeterinario(String idVeterinario) {
-        this.idVeterinario = idVeterinario;
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public LineasTratamiento getLinea_tratamiento() {
+        return linea_tratamiento;
+    }
+
+    public void setLinea_tratamiento(LineasTratamiento linea_tratamiento) {
+        this.linea_tratamiento = linea_tratamiento;
     }
 
     public Date getCreadoEl() {
