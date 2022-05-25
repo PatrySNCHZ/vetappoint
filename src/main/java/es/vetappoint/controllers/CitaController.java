@@ -40,7 +40,7 @@ public class CitaController {
             modelo.put("cita", cita);
             return "form_cita";
         } else {
-            return "redirect:/listacita";
+            return "redirect:/listacitas";
         }
     }
 

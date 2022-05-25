@@ -22,7 +22,7 @@ public class OpinionController {
     @Qualifier("OpinionDaoJPA")
     private OpinionDao opinionDao;
 
-    @GetMapping("/listaopinion")
+    @GetMapping("/listaopiniones")
     public String listaTodas(Model modelo) {
         modelo.addAttribute("titulopest", "Opinion");
         modelo.addAttribute("titulo", "Listado de opiniones");
@@ -40,7 +40,7 @@ public class OpinionController {
             modelo.put("opinion", opinion);
             return "form_opinion";
         } else {
-            return "redirect:/lista_opinion";
+            return "redirect:/listaopiniones";
         }
     }
 
@@ -49,7 +49,7 @@ public class OpinionController {
 
         opinionDao.delete(id);
 
-        return "redirect:/lista_opiniones";
+        return "redirect:/listaopiniones";
     }
 
     @RequestMapping(value ="/guardar/opinion", method = RequestMethod.POST)

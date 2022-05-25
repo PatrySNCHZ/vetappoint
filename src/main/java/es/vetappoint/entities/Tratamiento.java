@@ -19,8 +19,14 @@ public class Tratamiento implements Serializable {
             nullable = false)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name="id_mascota")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private String idMascota;
 
+    @ManyToOne
+    @JoinColumn(name="id_veterinario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private String idVeterinario;
 
     @Column(

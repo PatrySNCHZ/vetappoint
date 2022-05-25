@@ -23,7 +23,7 @@ public class LineasTratamientoController {
     public void LineasTratamientoController() {
     }
 
-    @GetMapping({"/listaLineasTratamiento"})
+    @GetMapping({"/listalintrata"})
     public String litarTodos(Model modelo) {
         modelo.addAttribute("titulopes", "LineasTratamientos");
         modelo.addAttribute("titulo", "Listado de LineasTratamientos");
@@ -41,7 +41,7 @@ public class LineasTratamientoController {
             modelo.put("lineas_tratamiento", lineas_tratamiento);
             return "form_lineas_tratamiento";
         } else {
-            return "redirect:/lista_LineasTratamiento";
+            return "redirect:/listalintrata";
         }
     }
 
@@ -50,13 +50,13 @@ public class LineasTratamientoController {
 
         lineasTratamientoDao.delete(id);
 
-        return "redirect:/lista_lineasTratamiento";
+        return "redirect:/listalintrata";
     }
 
     @RequestMapping(value ="/guardar/lineas_tratamiento", method = RequestMethod.POST)
     public String guardar(LineasTratamiento lineasTratamiento, Model model){
 
         lineasTratamientoDao.save(lineasTratamiento);
-        return "redirect:/lista_lineasTratamiento";
+        return "redirect:/listalintrata";
     }
 }

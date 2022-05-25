@@ -24,7 +24,7 @@ public class TratamientoController {
     public void TratamientoController() {
     }
 
-    @GetMapping({"/listaTratamiento"})
+    @GetMapping({"/listatratamientos"})
     public String litarTodos(Model modelo) {
         modelo.addAttribute("titulopes", "Tratamientos");
         modelo.addAttribute("titulo", "Listado de Tratamientos");
@@ -42,7 +42,7 @@ public class TratamientoController {
             modelo.put("tratamiento", tratamiento);
             return "form_tratamiento";
         } else {
-            return "redirect:/listaTratamiento";
+            return "redirect:/listatratamientos";
         }
     }
 

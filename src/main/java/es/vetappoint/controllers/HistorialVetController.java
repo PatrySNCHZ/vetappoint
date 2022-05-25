@@ -49,7 +49,7 @@ public class HistorialVetController {
 
         historialVetDao.delete(id);
 
-        return "redirect:/lista_historialesvet";
+        return "redirect:/listahistorialesvet";
     }
 
     @RequestMapping(value ="/guardar/historialvet", method = RequestMethod.POST)

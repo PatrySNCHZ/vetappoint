@@ -40,7 +40,7 @@ public class EspecialidadController {
             modelo.put("especialidad", especialidad);
             return "form_especialidad";
         } else {
-            return "redirect:/listaespecialidad";
+            return "redirect:/listaespecialidades";
         }
     }
 
@@ -49,7 +49,7 @@ public class EspecialidadController {
 
         especialidadDao.delete(id);
 
-        return "redirect:/lista_especialidades";
+        return "redirect:/listaespecialidades";
     }
 
     @RequestMapping(value ="/guardar/especialidad", method = RequestMethod.POST)
