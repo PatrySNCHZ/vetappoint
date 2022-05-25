@@ -1,7 +1,11 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "veterinarios")
@@ -16,6 +20,16 @@ public class Veterinario implements Serializable {
     @Column(name = "Apellidos")
     private String apellidos;
     private String email;
+
+    @ManyToMany(mappedBy = "veterinarios",  cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Especialidad> id_especialidad;
+
+    @ManyToMany(mappedBy = "veterinarios", cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Clinica> id_clinica;
+
+
 
     public Long getId() {
         return id;

@@ -1,16 +1,12 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tratamientos")
@@ -19,13 +15,28 @@ public class Tratamiento implements Serializable {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    @Column(name = "idTratamiento",
+    @Column(name = "id_tratamiento",
             nullable = false)
     private Long id;
 
-    private String idMascota;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_mascota")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Mascota mascota;
 
-    private String idVeterinario;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_veterinario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Veterinario veterinario;
+
+    @Column(name = "Medicamento")
+    private String medicamento;
+    @Column(name = "Posologia")
+    private String posologia;
+    @Column(name = "Fecha_inicio")
+    private String fechaInicio;
+    @Column(name = "Fecha_fin")
+    private String fechaFin;
 
     @Column(
             name = "creado_el",
@@ -34,6 +45,8 @@ public class Tratamiento implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
+
+
 
     public Tratamiento() {
     }
@@ -46,20 +59,60 @@ public class Tratamiento implements Serializable {
         this.id = id;
     }
 
-    public String getIdMascota() {
-        return idMascota;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdMascota(String idMascota) {
-        this.idMascota = idMascota;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getIdVeterinario() {
-        return idVeterinario;
+    public Mascota getMascota() {
+        return mascota;
     }
 
-    public void setIdVeterinario(String idVeterinario) {
-        this.idVeterinario = idVeterinario;
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public String getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(String medicamento) {
+        this.medicamento = medicamento;
+    }
+
+    public String getPosologia() {
+        return posologia;
+    }
+
+    public void setPosologia(String posologia) {
+        this.posologia = posologia;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public Date getCreadoEl() {

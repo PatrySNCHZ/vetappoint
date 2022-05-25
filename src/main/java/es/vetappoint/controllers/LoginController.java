@@ -20,7 +20,7 @@ public class LoginController {
     @Qualifier("UsuarioDaoJPA")
     private UsuarioDao usuarioDao;
     @Autowired
-    @Qualifier("ClinicaDao")
+    @Qualifier("ClinicaDaoJPA")
     private ClinicaDao clinicaDao;
 
     @GetMapping("/login")

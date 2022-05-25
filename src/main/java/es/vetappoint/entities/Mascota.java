@@ -1,6 +1,9 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,8 +15,13 @@ public class Mascota implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_mascota", nullable = false)
     private Long id;
-    @Column(name="id_propietario")
-    private Long idpropietario;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Usuario id_usuario;
+
+
     @Column(name="Foto")
     private String foto;
     @Column(name="Nombre")
@@ -32,6 +40,9 @@ public class Mascota implements Serializable {
     private String genero;
     private static final Long serialVersionUID=1L;
 
+
+
+
     public Mascota() {
     }
 
@@ -45,13 +56,7 @@ public class Mascota implements Serializable {
         this.id = id;
     }
 
-    public Long getIdpropietario() {
-        return idpropietario;
-    }
 
-    public void setIdpropietario(Long idpropietario) {
-        this.idpropietario = idpropietario;
-    }
 
 
     public String getFoto() {
@@ -122,7 +127,7 @@ public class Mascota implements Serializable {
     public String toString() {
         return "Mascota{" +
                 "id=" + id +
-                ", idpropietario=" + idpropietario +
+                ", idpropietario=" + id_usuario +
                 ", foto='" + foto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", especie='" + especie + '\'' +

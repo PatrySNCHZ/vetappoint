@@ -1,9 +1,14 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "citas")
@@ -12,12 +17,9 @@ public class Cita implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "idCita", nullable = false)
+    @Column(name = "id_cita", nullable = false)
     private Long id;
-    private Long idUsuario;
-    private Long idClinica;
-    private Long idMascota;
-    private Long idVeterinario;
+
     @Column(name = "Fecha")
     private LocalDate fecha;
     @Column(name = "Hora")
@@ -32,60 +34,70 @@ public class Cita implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Usuario idUsuario;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_clinica")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Clinica idClinica;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_mascota")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Mascota idMascota;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_veterinario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Veterinario idVeterinario;
+
+
     public Cita() {
 
     }
 
-    public Cita(Long id, Long idUsuario, Long idClinica, Long idMascota, Long idVeterinario, LocalDate fecha, LocalDate hora, LocalDate fechaSolicitud, LocalDate horaSolicitud, Date creadoEl) {
-        this.id = id;
-        this.idUsuario = idUsuario;
-        this.idClinica = idClinica;
-        this.idMascota = idMascota;
-        this.idVeterinario = idVeterinario;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.fechaSolicitud = fechaSolicitud;
-        this.horaSolicitud = horaSolicitud;
-        this.creadoEl = creadoEl;
-    }
+
 
     public Long getId() {
         return id;
     }
 
+
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Long getIdClinica() {
+    public Clinica getIdClinica() {
         return idClinica;
     }
 
-    public void setIdClinica(Long idClinica) {
+    public void setIdClinica(Clinica idClinica) {
         this.idClinica = idClinica;
     }
 
-    public Long getIdMascota() {
+    public Mascota getIdMascota() {
         return idMascota;
     }
 
-    public void setIdMascota(Long idMascota) {
+    public void setIdMascota(Mascota idMascota) {
         this.idMascota = idMascota;
     }
 
-    public Long getIdVeterinario() {
+    public Veterinario getIdVeterinario() {
         return idVeterinario;
     }
 
-    public void setIdVeterinario(Long idVeterinario) {
+    public void setIdVeterinario(Veterinario idVeterinario) {
         this.idVeterinario = idVeterinario;
     }
 

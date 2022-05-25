@@ -2,6 +2,7 @@ package es.vetappoint.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -53,6 +54,8 @@ public class Usuario implements Serializable {
         this.cp = cp;
         this.provincia = provincia;
     }
+
+
 
     public Long getId() {
         return id;
@@ -149,8 +152,6 @@ public class Usuario implements Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-
-
 
 
     @Override

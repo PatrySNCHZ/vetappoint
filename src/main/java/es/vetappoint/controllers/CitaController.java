@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -38,7 +40,22 @@ public class CitaController {
             modelo.put("cita", cita);
             return "form_cita";
         } else {
-            return "redirect:/listacita";
+            return "redirect:/listacitas";
         }
+    }
+
+    @GetMapping({"/eliminar/cita/{id}"})
+    public String borrar(@PathVariable("id") Long id, Model modelo) {
+
+        citaDao.delete(id);
+
+        return "redirect:/lista_citas";
+    }
+
+    @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
+    public String guardar(Cita cita, Model model){
+
+        citaDao.save(cita);
+        return "redirect:/listacitas";
     }
 }

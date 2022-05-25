@@ -1,18 +1,17 @@
 <!doctype html>
 <html lang="es_ES" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantillas/general :: head">
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-<body>
-<header th:replace="plantillas/general :: header"></header>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title th:text="${titulo}"></title>
 </head>
-
-<h1>Hello, World!</h1>
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">VetAPPoint</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,9 +41,8 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido, USUARIO</h1>
-        <p class="lead">Estas son tus mascotas, recuerda hacer revisiones periódicas y traerlas a
-            tu clinica favorita si lo necesitas</p>
+        <h1 class="display-4">Lista de clientes</h1>
+        <p class="lead">Estos son los clientes que os prefieren a ti antes que a otras clinicas! Echa un vistazo a sus perfiles y mascotas</p>
     </div>
 
 
@@ -52,21 +50,40 @@
 
 </div>
 <div class="container">
-    <div class="card" style="width: 25rem;">
-        <img src="https://bensvet.com.br/wp-content/uploads/2019/04/como-montar-uma-clinica-veterinaria-min.jpg" alt="...">
-        <div class="card-body">
-            <p class="card-text">Clinica Vet Del Rocío</p>
-            <p class="card-text">Sevilla</p>
-            <p class="card-text">Utrera</p>
+    <h1 th:text="${titulo}"></h1>
 
-            <a href="#" class="card-link">Marcar como favorita</a>
-            <a href="#" class="card-link">Dejar una opinión</a>
-        </div>
-    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Mascota</th>
+            <th>Veterinario</th>
+            <th>Medicamento</th>
+            <th>Posología</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de fin</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tr : ${tratamiento}">
+            <td th:text="${tr.mascota.nombre}"></td>
+            <td th:text="${tr.veterinario.nombre}"></td>
+            <td th:text="${tr.medicamento}"></td>
+            <td th:text="${tr.posologia}"></td>
+            <td th:text="${tr.fechaInicio}"></td>
+            <td th:text="${tr.fechaFin}"></td>
+
+
+        </tr>
+
+        </tbody>
+    </table>
 </div>
 
-</body>
-</html>
+
+
+
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

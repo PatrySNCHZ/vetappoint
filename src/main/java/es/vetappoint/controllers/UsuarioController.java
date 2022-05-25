@@ -37,7 +37,7 @@ public class UsuarioController {
             modelo.put("usuario", usuario);
             return "form_usuario";
         } else {
-            return "redirect:/lista_usuarios";
+            return "redirect:/listausuarios";
         }
     }
 
@@ -51,7 +51,7 @@ public class UsuarioController {
             modelo.put("usuario", usuario);
             return "usuario_perfil";
         } else {
-            return "redirect:/lista_usuarios";
+            return "redirect:/listausuarios";
         }
     }
 
@@ -61,7 +61,7 @@ public class UsuarioController {
 
         usuarioDao.delete(id);
 
-        return "redirect:/lista_usuarios";
+        return "redirect:/listausuarios";
     }
 
     @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
