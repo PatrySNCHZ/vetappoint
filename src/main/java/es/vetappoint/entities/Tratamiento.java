@@ -29,6 +29,15 @@ public class Tratamiento implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Veterinario veterinario;
 
+    @Column(name = "Medicamento")
+    private String medicamento;
+    @Column(name = "Posologia")
+    private String posologia;
+    @Column(name = "Fecha_inicio")
+    private String fechaInicio;
+    @Column(name = "Fecha_fin")
+    private String fechaFin;
+
     @Column(
             name = "creado_el",
             columnDefinition = "date DEFAULT (curdate())"
@@ -37,9 +46,7 @@ public class Tratamiento implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
-    @OneToOne(mappedBy="tratamientos", cascade = CascadeType.ALL,  orphanRemoval = true)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private LineasTratamiento linea_tratamiento;
+
 
     public Tratamiento() {
     }
@@ -76,12 +83,36 @@ public class Tratamiento implements Serializable {
         this.veterinario = veterinario;
     }
 
-    public LineasTratamiento getLinea_tratamiento() {
-        return linea_tratamiento;
+    public String getMedicamento() {
+        return medicamento;
     }
 
-    public void setLinea_tratamiento(LineasTratamiento linea_tratamiento) {
-        this.linea_tratamiento = linea_tratamiento;
+    public void setMedicamento(String medicamento) {
+        this.medicamento = medicamento;
+    }
+
+    public String getPosologia() {
+        return posologia;
+    }
+
+    public void setPosologia(String posologia) {
+        this.posologia = posologia;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public Date getCreadoEl() {

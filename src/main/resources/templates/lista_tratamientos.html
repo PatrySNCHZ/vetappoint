@@ -64,13 +64,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ltr : ${lineas_tratamiento}">
-            <td th:text="${ltr.tratamientos}"></td>
-            <td th:text="${ltr.tratamientos}"></td>
-            <td th:text="${ltr.medicamento}"></td>
-            <td th:text="${ltr.posologia}"></td>
-            <td th:text="${ltr.fechaInicio}"></td>
-            <td th:text="${ltr.fechaFin}"></td>
+        <tr th:each="tr : ${tratamiento}">
+            <td th:text="${tr.mascota.nombre}"></td>
+            <td th:text="${tr.veterinario.nombre}"></td>
+            <td th:text="${tr.medicamento}"></td>
+            <td th:text="${tr.posologia}"></td>
+            <td th:text="${tr.fechaInicio}"></td>
+            <td th:text="${tr.fechaFin}"></td>
 
 
         </tr>

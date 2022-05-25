@@ -23,9 +23,6 @@ INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, prov
 INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuacion) VALUES (1,  2,  2, 'muy bien','5');
 INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuacion) VALUES (2,  1, 3, 'mal', '1');
 
-INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario) VALUES (1, 2, 2);
-INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario) VALUES (2, 1, 1);
-
-INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamientos, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(1, 1, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01')
-INSERT INTO linea_tratamientos(id_lineatratamiento, id_tratamientos, medicamento, posologia, fecha_inicio, fecha_fin) VALUES(2, 2, 'paracetamol', 'cada 8 horas', '2009-02-12','2010-01-01')
+INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicamento, posologia, fecha_inicio, fecha_fin) VALUES (1, 2, 2, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01');
+INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicamento, posologia, fecha_inicio, fecha_fin) VALUES (2, 1, 1, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01');
 
