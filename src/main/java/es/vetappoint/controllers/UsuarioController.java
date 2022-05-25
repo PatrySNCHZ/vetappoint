@@ -61,7 +61,7 @@ public class UsuarioController {
 
         usuarioDao.delete(id);
 
-        return "redirect:/lista_usuarios";
+        return "redirect:/listausuarios";
     }
 
     @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
