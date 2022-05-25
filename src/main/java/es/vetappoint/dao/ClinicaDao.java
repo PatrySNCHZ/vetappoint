@@ -1,6 +1,8 @@
 package es.vetappoint.dao;
 
 
+import es.vetappoint.entities.Clinica;
+
 import java.util.List;
 
 public interface ClinicaDao {
