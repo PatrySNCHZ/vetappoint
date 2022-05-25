@@ -1,6 +1,9 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -56,8 +59,10 @@ public class Clinica implements Serializable {
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE
+            CascadeType.MERGE,
+            CascadeType.REMOVE
     })
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name="clinicas_veterinarios",
             joinColumns= @JoinColumn (name= "id_clinica"),
             inverseJoinColumns = @JoinColumn(name="id_veterinario"))

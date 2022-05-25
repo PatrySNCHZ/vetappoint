@@ -1,6 +1,9 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -28,7 +31,8 @@ public class Tratamiento implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
-    @OneToOne(mappedBy="id_tratamientos")
+    @OneToOne(mappedBy="id_tratamientos", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private LineasTratamiento linea_tratamiento;
 
     public Tratamiento() {

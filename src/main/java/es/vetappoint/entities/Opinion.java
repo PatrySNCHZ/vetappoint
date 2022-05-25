@@ -1,5 +1,8 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,8 +18,16 @@ public class Opinion implements Serializable {
     private int puntuacion;
     @Column(name = "Comentario")
     private String comentario;
-    private Long idUsuario;
-    private Long idClinica;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Usuario id_usuario;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_clinica")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Clinica id_clinica;
 
     public Long getId() {
         return id;
@@ -42,20 +53,20 @@ public class Opinion implements Serializable {
         this.comentario = comentario;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Usuario getId_usuario() {
+        return id_usuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId_usuario(Usuario id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public Long getIdClinica() {
-        return idClinica;
+    public Clinica getId_clinica() {
+        return id_clinica;
     }
 
-    public void setIdClinica(Long idClinica) {
-        this.idClinica = idClinica;
+    public void setId_clinica(Clinica id_clinica) {
+        this.id_clinica = id_clinica;
     }
 
     public Opinion () {
@@ -66,8 +77,8 @@ public class Opinion implements Serializable {
         this.id = id;
         this.puntuacion = puntuacion;
         this.comentario = comentario;
-        this.idUsuario = idUsuario;
-        this.idClinica = idClinica;
+        this.id_usuario = id_usuario;
+        this.id_clinica = id_clinica;
     }
 
     @Override
@@ -76,8 +87,8 @@ public class Opinion implements Serializable {
                 "id=" + id +
                 ", puntuacion=" + puntuacion +
                 ", comentario='" + comentario + '\'' +
-                ", idUsuario=" + idUsuario +
-                ", idClinica=" + idClinica +
+                ", idUsuario=" + id_usuario +
+                ", idClinica=" + id_clinica +
                 '}';
     }
 }

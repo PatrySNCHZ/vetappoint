@@ -1,6 +1,9 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,8 +16,9 @@ public class Mascota implements Serializable {
     @Column(name="id_mascota", nullable = false)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Usuario id_usuario;
 
 

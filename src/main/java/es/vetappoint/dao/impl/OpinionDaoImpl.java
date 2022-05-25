@@ -31,7 +31,7 @@ public class OpinionDaoImpl implements OpinionDao {
     @Transactional
     @Override
     public void save(Opinion opinion) {
-        if (opinion.getId() != null && opinion.getIdUsuario() > 0) {
+        if (opinion.getId() != null && opinion.getId_usuario().getId() > 0) {
             em.merge(opinion);
         }else {
             em.persist(opinion);

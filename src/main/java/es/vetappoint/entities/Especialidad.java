@@ -1,5 +1,8 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +18,8 @@ public class Especialidad implements Serializable {
     @Column(name = "Nombre_esp")
     private String nombre;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name="especialidades_veterinario",
     joinColumns= @JoinColumn (name= "id_especialidad"),
     inverseJoinColumns = @JoinColumn(name="id_veterinario"),

@@ -1,5 +1,8 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -34,15 +37,19 @@ public class Cita implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_usuario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Usuario idUsuario;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_clinica")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Clinica idClinica;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_mascota")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Mascota idMascota;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_veterinario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Veterinario idVeterinario;
 
 

@@ -1,5 +1,8 @@
 package es.vetappoint.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -18,12 +21,14 @@ public class HistorialVet implements Serializable {
     @Column(name = "Procedimiento")
     private String procedimiento;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL )
     @JoinColumn(name="id_mascotas")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Mascota mascota;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_veterinario")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Veterinario veterinario;
 
     public HistorialVet() {
