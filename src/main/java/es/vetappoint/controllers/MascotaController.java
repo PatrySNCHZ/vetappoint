@@ -1,7 +1,6 @@
 package es.vetappoint.controllers;
 
 import es.vetappoint.dao.MascotaDao;
-import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Mascota;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

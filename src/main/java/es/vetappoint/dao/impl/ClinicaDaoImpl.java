@@ -5,7 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.vetappoint.dao.ClinicaDao;
-import es.vetappoint.entities.Clinica;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

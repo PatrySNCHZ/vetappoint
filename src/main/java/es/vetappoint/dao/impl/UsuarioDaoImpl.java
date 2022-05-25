@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository("UsuarioDaoJPA")
 public class UsuarioDaoImpl implements UsuarioDao {
@@ -43,5 +44,16 @@ public class UsuarioDaoImpl implements UsuarioDao {
     @Override
     public void delete(Long id) {
         em.remove(findOne(id));
+    }
+
+    @Override
+    public Optional<Usuario> findByEmail(String email) {
+        List usus = em.createQuery("from Usuario u WHERE u.email=:email", Usuario.class)
+                .setParameter("email",email).getResultList();
+        if (usus.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of((Usuario) usus.get(0));
+        }
     }
 }

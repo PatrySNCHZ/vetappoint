@@ -34,6 +34,7 @@ public class Usuario implements Serializable {
     private String cp;
     @Column(name = "Provincia")
     private String provincia;
+    private String rol;
     private static final Long serialVersionUID=1L;
 
 
