@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -40,5 +42,20 @@ public class HistorialVetController {
         } else {
             return "redirect:/listahistorialvet";
         }
+    }
+
+    @GetMapping({"/eliminar/historialvet/{id}"})
+    public String borrar(@PathVariable("id") Long id, Model modelo) {
+
+        historialVetDao.delete(id);
+
+        return "redirect:/lista_historialesvet";
+    }
+
+    @RequestMapping(value ="/guardar/historialvet", method = RequestMethod.POST)
+    public String guardar(HistorialVet historialVet, Model model){
+
+        historialVetDao.save(historialVet);
+        return "redirect:/listahistorialesvet";
     }
 }

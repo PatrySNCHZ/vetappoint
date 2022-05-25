@@ -3,14 +3,7 @@ package es.vetappoint.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "clinicas")
@@ -52,11 +45,21 @@ public class Clinica implements Serializable {
     private String horario;
     @Column(name="Granularidad")
     private String granularidad;
-
+    @OneToOne
+    @JoinColumn(name = "usuario_id_usuario")
+    private Usuario usuario;
     @Column(name = "creado_el", columnDefinition = "date DEFAULT (curdate())")
     @Temporal(TemporalType.DATE)
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Clinica() {
     }
