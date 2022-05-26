@@ -41,7 +41,7 @@ public class CitaController {
         return "lista_citas";
     }
 
-    @GetMapping({"/cita/{id}"})
+    @GetMapping({"/cita/{id}", "/cita"})
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopest", "Cita");
         modelo.put("titulo", "Perfil de cita");
@@ -49,7 +49,7 @@ public class CitaController {
         if (id > 0L) {
             cita = this.citaDao.findOne(id);
             modelo.put("cita", cita);
-            return "form_cita";
+            return "solicitar_cita";
         } else {
             return "redirect:/listacitas";
         }
