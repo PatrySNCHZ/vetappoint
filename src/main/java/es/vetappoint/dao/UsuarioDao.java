@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface UsuarioDao {
     public List<Usuario> findAll();
     public Usuario findOne(Long id);
-    public void save(Usuario usuario);
+    public Usuario save(Usuario usuario);
     public void delete(Long id);
     public Optional<Usuario> findByEmail(String email);
 }
