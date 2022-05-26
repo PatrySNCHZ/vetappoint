@@ -64,10 +64,18 @@ public class UsuarioController {
         return "redirect:/listausuarios";
     }
 
-    @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
+    @GetMapping(value ="/guardar/usuario")
+    public String registro(Model model){
+
+        return "registro_usuario;";
+    }
+
+    @RequestMapping(value ="/registro/usuario", method = RequestMethod.POST)
     public String guardar(Usuario usuario, Model model){
 
         usuarioDao.save(usuario);
         return "redirect:/listausuarios";
     }
+
+
 }
