@@ -32,3 +32,4 @@ INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicament
 
 INSERT INTO citas (id_cita, id_clinica, id_mascota, id_usuario, id_veterinario) VALUES (1, 1, 2, 1, 2);
 INSERT INTO citas (id_cita, id_clinica, id_mascota, id_usuario, id_veterinario) VALUES (2, 2, 2, 1, 1);
+INSERT INTO citas (id_cita, id_clinica, id_mascota, id_usuario, id_veterinario) VALUES (3, 2, 4, 2, 1);
