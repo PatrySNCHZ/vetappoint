@@ -29,8 +29,6 @@ public class Veterinario implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Clinica> id_clinica;
 
-
-
     public Long getId() {
         return id;
     }
@@ -61,26 +59,6 @@ public class Veterinario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Especialidad> getId_especialidad() {
-        return id_especialidad;
-    }
-
-    public void setId_especialidad(List<Especialidad> id_especialidad) {
-        this.id_especialidad = id_especialidad;
-    }
-
-    public List<Clinica> getId_clinica() {
-        return id_clinica;
-    }
-
-    public void setId_clinica(List<Clinica> id_clinica) {
-        this.id_clinica = id_clinica;
-    }
-
-    public Veterinario() {
-
     }
 
     public List<Especialidad> getId_especialidad() {
