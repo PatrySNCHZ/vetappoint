@@ -1,7 +1,7 @@
 package es.vetappoint.controllers;
 
 import es.vetappoint.dao.UsuarioDao;
-import es.vetappoint.dao.service.EncryptService;
+//import es.vetappoint.dao.service.EncryptService;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,8 +21,7 @@ public class UsuarioController {
     @Qualifier("UsuarioDaoJPA")
     private UsuarioDao usuarioDao;
 
-    @Autowired
-    private EncryptService encryptService;
+   // private EncryptService encryptService;
 
     @GetMapping("/listausuarios")
     public String listaTodas(Model modelo) {
@@ -68,15 +67,15 @@ public class UsuarioController {
         return "redirect:/listausuarios";
     }
 
-    @GetMapping(value ="/guardar/usuario")
+    @GetMapping(value ="/registrar/usuario")
     public String registro(Model model){
 
-        return "registro_usuario;";
+        return "redirect:/registro_usuario";
     }
 
-    @RequestMapping(value ="/registro/usuario", method = RequestMethod.POST)
+    @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
     public String guardar(Usuario usuario, Model model){
-        encryptService.encryptClave(usuario.getClave());
+        //encryptService.encryptClave(usuario.getClave());
         usuarioDao.save(usuario);
 
         return "redirect:/listausuarios";

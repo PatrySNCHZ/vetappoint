@@ -1,5 +1,5 @@
-package es.vetappoint.dao.service;
-
+package es.vetappoint.service;
+/*
 public interface EncryptService {
 
     //Para encriptar la contraseña
@@ -8,3 +8,4 @@ public interface EncryptService {
     //Para verificar si clave original es igual a la encriptada
     boolean verifyClave(String originalClave, String hashClave);
 }
+*/

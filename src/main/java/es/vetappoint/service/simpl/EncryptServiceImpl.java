@@ -1,5 +1,5 @@
-package es.vetappoint.dao.service.simpl;
-
+package es.vetappoint.service.simpl;
+/*
 import es.vetappoint.dao.UsuarioDao;
 import es.vetappoint.dao.service.EncryptService;
 import es.vetappoint.entities.Usuario;
@@ -24,3 +24,4 @@ public class EncryptServiceImpl implements EncryptService {
     }
 
 }
+*/
