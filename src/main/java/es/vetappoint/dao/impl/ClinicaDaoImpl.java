@@ -1,11 +1,13 @@
 package es.vetappoint.dao.impl;
 
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.entities.Clinica;
+import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,4 +50,16 @@ public class ClinicaDaoImpl implements ClinicaDao {
     public void delete(Long id) {
         em.remove(this.findOne(id));
     }
+
+    @Override
+    public Optional<Clinica> findByEmail(String email) {
+        List clin = em.createQuery("from Clinica u WHERE u.email=:email", Clinica.class)
+                .setParameter("email",email).getResultList();
+        if (clin.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of((Clinica) clin.get(0));
+        }
+    }
 }
+

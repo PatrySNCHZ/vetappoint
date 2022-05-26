@@ -1,7 +1,9 @@
 package es.vetappoint.controllers;
 
 import es.vetappoint.dao.MascotaDao;
+import es.vetappoint.dao.UsuarioDao;
 import es.vetappoint.entities.Mascota;
+import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,10 @@ public class MascotaController {
     @Autowired
     @Qualifier("mascotaDAOJPA")
     private MascotaDao mascotaDAO;
+
+    @Autowired
+    @Qualifier("UsuarioDaoJPA")
+    private UsuarioDao usuarioDao;
 
     @GetMapping("/listamascotas")
     public String listarMascotas(Model modelo){
@@ -55,6 +61,16 @@ public class MascotaController {
         }
     }
 
+
+    @GetMapping("/listamascotas/{id}")
+    public String listaMascotasPorUsuario(@PathVariable("id") Long id, Model modelo) {
+        Usuario usuario = usuarioDao.findOne(id);
+        modelo.addAttribute("titulo", "Tus mascotas");
+        modelo.addAttribute("titulopes", "Bienvenido/a al perfil de " + usuario.getNombre());
+        modelo.addAttribute("mascotas", mascotaDAO.listByUserId(usuario));
+        return "lista_mascotas";
+    }
+
     @GetMapping({"/eliminar/mascota/{id}"})
     public String borrar(@PathVariable("id") Long id, Model modelo) {
 
@@ -71,5 +87,8 @@ public class MascotaController {
 
         return "redirect:/listamascotas";
     }
+
+
+
 
 }

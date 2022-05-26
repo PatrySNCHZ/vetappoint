@@ -17,8 +17,8 @@ INSERT INTO especialidades (id_especialidad, nombre_esp) VALUES (1, 'Aves');
 INSERT INTO especialidades (id_especialidad, nombre_esp) VALUES (2, 'Roedores');
 
 INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (1, 'clinica virgen del rocio', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
-INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (2, 'vet almeria', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
-INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (3, 'veterinaria malaga', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
+INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (2, 'vet almeria', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr1@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
+INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (3, 'veterinaria malaga', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr2@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
 
 INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuacion) VALUES (1,  2,  2, 'muy bien','5');
 INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuacion) VALUES (2,  1, 3, 'mal', '1');
