@@ -71,6 +71,8 @@ public class MascotaController {
         return "lista_mascotas";
     }
 
+
+
     @GetMapping({"/eliminar/mascota/{id}"})
     public String borrar(@PathVariable("id") Long id, Model modelo) {
 

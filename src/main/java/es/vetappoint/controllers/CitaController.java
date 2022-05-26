@@ -1,8 +1,10 @@
 package es.vetappoint.controllers;
 
 import es.vetappoint.dao.CitaDao;
+import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.dao.UsuarioDao;
 import es.vetappoint.entities.Cita;
+import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,6 +23,15 @@ public class CitaController {
     @Autowired
     @Qualifier("CitaDaoJPA")
     private CitaDao citaDao;
+
+    @Autowired
+    @Qualifier("UsuarioDaoJPA")
+    private UsuarioDao usuarioDao;
+
+    @Autowired
+    @Qualifier("ClinicaDaoJPA")
+    private ClinicaDao clinicaDao;
+
 
     @GetMapping("/listacitas")
     public String listaTodas(Model modelo) {
@@ -58,4 +69,24 @@ public class CitaController {
         citaDao.save(cita);
         return "redirect:/listacitas";
     }
+
+
+    @GetMapping("/citas/clinica/{id}")
+    public String listarCitasPorClinica(@PathVariable("id") Long id, Model modelo) {
+        Clinica clinica = clinicaDao.findOne(id);
+        modelo.addAttribute("titulopes", "Citas de hoy");
+        modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
+        modelo.addAttribute("clinicas", citaDao.listByClinica(clinica));
+        return "lista_citas";
+    }
+
+    @GetMapping("/citas/usuario/{id}")
+    public String listarCitasPorUsuario(@PathVariable("id") Long id, Model modelo) {
+        Usuario usuario = usuarioDao.findOne(id);
+        modelo.addAttribute("titulopes", "Tus citas");
+        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
+        modelo.addAttribute("clinicas", citaDao.listByUsuario(usuario));
+        return "lista_citas";
+    }
+
 }

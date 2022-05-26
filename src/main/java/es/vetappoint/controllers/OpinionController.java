@@ -1,7 +1,10 @@
 package es.vetappoint.controllers;
 
+import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.dao.OpinionDao;
 import es.vetappoint.dao.UsuarioDao;
+import es.vetappoint.entities.Clinica;
+import es.vetappoint.entities.Mascota;
 import es.vetappoint.entities.Opinion;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,15 @@ public class OpinionController {
     @Autowired
     @Qualifier("OpinionDaoJPA")
     private OpinionDao opinionDao;
+
+    @Autowired
+    @Qualifier("UsuarioDaoJPA")
+    private UsuarioDao usuarioDao;
+
+    @Autowired
+    @Qualifier("ClinicaDaoJPA")
+    private ClinicaDao clinicaDao;
+
 
     @GetMapping("/listaopiniones")
     public String listaTodas(Model modelo) {
@@ -58,4 +70,23 @@ public class OpinionController {
         opinionDao.save(opinion);
         return "redirect:/listaopiniones";
     }
+
+    @GetMapping("/opinion/clinica/{id}")
+    public String listarOpinionPorClinica(@PathVariable("id") Long id, Model modelo) {
+        Clinica clinica = clinicaDao.findOne(id);
+        modelo.addAttribute("titulopes", "Opiniones");
+        modelo.addAttribute("titulo", "Las opiniones de los usuarios sobre" + clinica.getNombre());
+        modelo.addAttribute("clinicas", opinionDao.listByClinica(clinica));
+        return "lista_opiniones";
+    }
+
+    @GetMapping("/opinion/usuario/{id}")
+    public String listarOpinionPorUsuario(@PathVariable("id") Long id, Model modelo) {
+        Usuario usuario = usuarioDao.findOne(id);
+        modelo.addAttribute("titulopes", "Tus opiniones");
+        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus valoraciones");
+        modelo.addAttribute("clinicas", opinionDao.listByUsuario(usuario));
+        return "lista_opiniones";
+    }
+
 }

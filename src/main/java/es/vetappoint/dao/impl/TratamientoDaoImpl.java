@@ -5,7 +5,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.vetappoint.dao.TratamientoDao;
+import es.vetappoint.entities.Mascota;
 import es.vetappoint.entities.Tratamiento;
+import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,4 +47,12 @@ public class TratamientoDaoImpl implements TratamientoDao {
     public void delete(Long id) {
         this.em.remove(this.findOne(id));
     }
+
+    @Override
+    public List<Tratamiento> listByMascotaId(Mascota mascota) {
+            List<Tratamiento> lista = em.createQuery("from Tratamiento t where t.id_mascota = :id_mascota")
+                    .setParameter("id_mascota", mascota ).getResultList();
+            return lista;
+    }
+
 }

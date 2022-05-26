@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title th:text=""></title>
+    <title th:text="${titulo}"></title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">VetAppOint</a>
+    <a class="navbar-brand" href="#">VetAPPoint</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,13 +24,13 @@
                 <a class="nav-link" href="#">Mi perfil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Próximas citas</a>
+                <a class="nav-link" href="#">Mis citas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mis clientes</a>
+                <a class="nav-link" href="#">Mis mascotas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Veterinarios</a>
+                <a class="nav-link" href="#">Mis clinicas</a>
             </li>
             <li class="nav-item pull-right">
                 <a class="nav-link" href="#">Cerrar sesion</a>
@@ -41,38 +41,45 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido, CLINICA</h1>
-        <p class="lead">Aquí le mostramos sus próximas citas!</p>
+        <h1 class="display-4">Lista de clientes</h1>
+        <p class="lead">Estos son los clientes que os prefieren a ti antes que a otras clinicas! Echa un vistazo a sus perfiles y mascotas</p>
     </div>
+
+
+
+
 </div>
-
-
 <div class="container">
     <h1 th:text="${titulo}"></h1>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Mascota</th>
-            <th>Fecha</th>
-            <th>Hora</th>
             <th>Veterinario</th>
+            <th>Mascota</th>
+            <th>Procedimiento</th>
+            <th>Tratamiento</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cit : ${citas}">
-            <td th:text="${cit.*Nombre del ususario*}"></td>
-            <td th:text="${cit.*Nombre mascota*}"></td>
-            <td th:text="${cit.hora}"></td>
-            <td th:text="${cit.fecha}"></td>
-            <td th:text="${cit.*Nombre del veterinario*}"></td>
+        <tr th:each="hv : ${historialVet}">
+            <td th:text="${hv.veterinario.nombre}"></td>
+            <td th:text="${hv.mascota.nombre}"></td>
+            <td th:text="${hv.procedimiento}"></td>
+            <td><a th:object="{tratamientos}" th:href="@{/tratamiento/{id}(id=${cli.id})}">Tratamiento</a></td>
 
         </tr>
 
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
