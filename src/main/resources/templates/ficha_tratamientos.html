@@ -43,80 +43,65 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Bienvenido, USUARIO</h1>
-        <p class="lead">Estas son tus citas ¡Recuerda cancelarla si finalmente no puedes asistir!</p>
+        <p class="lead">Recuerda que tu próxima cita para MASCOTA será el DIA, HORA en CLINICA con VETERINARIO</p>
     </div>
-
-
-
-
 </div>
 
 <div class="container">
-    <div class="sidebar">
-        <h2>Próximas Citas</h2>
-        <div class="card" style="width: 18rem;">
 
-            <div class="card-body">
-                <h5 class="card-title">Fecha</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Hora</li>
-                <li class="list-group-item">Mascota</li>
-                <li class="list-group-item">Clinica</li>
-                <li class="list-group-item">Veterinario</li>
+    <div class="panel-heading">
+        <h3 class="panel-title">Mascota</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="Pet Pic" src="" class="img-circle img-responsive"> </div>
 
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Cancelar cita</a>
+            <div class=" col-md-9 col-lg-9 ">
+                <table th:object="${tratamiento}"class="table table-user-information">
+                    <tbody>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td th:text="${tratamiento.mascota.nombre}"></td>
+                    </tr>
+                    <tr>
+                        <td>Veterinario:</td>
+                        <td th:text="${tratamiento.veterinario.nombre}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Medicamento:</td>
+                        <td th:text="${tratamiento.medicamento}"></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Posologia:</td>
+                        <td th:text="${tratamiento.posologia}"></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de inicio:</td>
+                        <td>
+                            <p th:text="${tratamiento.fechaInicio}"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de fin:</td>
+                        <td th:text="${tratamiento.fechaFin}"></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha creación:</td>
+                        <td th:text="${tratamiento.creadoEl}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <form>
-            <h2>Solicitar cita</h2>
-            <div class="Fecha">
-                <label for="exampleFormControlInput1">Fecha</label>
-                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
 
-            <div class="Hora">
-                <label for="exampleFormControlSelect1">Hora</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>12:00</option>
-
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="exampleFormControlSelect2">Provincia</label>
-                <select class="form-control" id="exampleFormControlSelect2">
-                    <option>Sevilla</option>
-
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Localidad</label>
-                <select class="form-control" id="exampleFormControlSelect3">
-                    <option>Utrera</option>
-
-                </select>
-                <label for="exampleFormControlSelect4">Clinica</label>
-                <select class="form-control" id="exampleFormControlSelect4">
-                    <option>Clinica Vet del Rocio</option>
-
-                </select>
-                <label for="exampleFormControlSelect5">Veterinario</label>
-                <select class="form-control" id="exampleFormControlSelect5">
-                    <option>Ramón Del Valle </option>
-
-                </select>
-            </div>
-            <button type="button" class="btn btn-primary">Solicitar cita</button>
-        </form>
-    </div>
-
-
+</div>
+</div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
