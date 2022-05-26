@@ -15,20 +15,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class AccessSecurity extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private Clinica clinica;
-
-    @Autowired
-    private Usuario usuario;
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/inicio", "/login").permitAll()
-                .antMatchers("/editar/clinica").hasRole(usuario.getRol())
-                .antMatchers("/editar/mascotas").hasRole(clinica.getRol())
+                .antMatchers("/editar/clinica").hasRole("ROLE_CLINICA")
+                .antMatchers("/editar/mascotas").hasRole("ROLE_USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
