@@ -1,8 +1,12 @@
 package es.vetappoint.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -53,6 +57,17 @@ public class Clinica implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REMOVE
+    })
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinTable(name="clinicas_veterinarios",
+            joinColumns= @JoinColumn (name= "id_clinica"),
+            inverseJoinColumns = @JoinColumn(name="id_veterinario"))
+    private List<Veterinario> veterinarios;
 
     public Clinica() {
     }

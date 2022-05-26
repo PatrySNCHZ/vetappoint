@@ -2,35 +2,80 @@
 <html lang="es_ES" xmlns:th="http://www.thymeleaf.org">
 
 <header th:fragment="header-anonimo" id="header-section">
-  <nav class="navbar navbar-expand-lg pl-3 pl-sm-0">
-    <div class="container">
-      <a class="navbar-brand d-flex w-100">
-        <img th:src="@{/images/Group2.svg}" alt="">
-      </a>
-      <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="@{/}">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/listausuarios}">Clínicas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/listacategorias}">Veterinarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#feedback-section">Servicios</a>
-          </li>
-          <li class="nav-item btn-contact-us pl-4 pl-lg-0">
-            <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contactar</button>
-          </li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="navbar-brand" src="@{images/Vetappoint-01.png}">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Explora
+          </a>
+          <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link active" href="@{/}">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/listausuarios}">Clínicas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/listacategorias}">Veterinarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#feedback-section">Opiniones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}">Login/Registro</a>
+              </li>
+            </div>
+          </ul>
+      </ul>
+    </div>
+    </div>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
     </div>
   </nav>
+<!--  <nav class="navbar navbar-expand-lg pl-3 pl-sm-0">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand d-flex w-100">-->
+<!--        <img th:src="@{/images/Group2.svg}" alt="">-->
+<!--      </a>-->
+<!--      <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"-->
+<!--              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"-->
+<!--              aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link active" href="@{/}">Inicio</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" th:href="@{/listausuarios}">Clínicas</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" th:href="@{/listacategorias}">Veterinarios</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#feedback-section">Servicios</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item btn-contact-us pl-4 pl-lg-0">-->
+<!--            <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contactar</button>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
 </header>

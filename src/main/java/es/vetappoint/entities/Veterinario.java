@@ -67,6 +67,22 @@ public class Veterinario implements Serializable {
 
     }
 
+    public List<Especialidad> getId_especialidad() {
+        return id_especialidad;
+    }
+
+    public void setId_especialidad(List<Especialidad> id_especialidad) {
+        this.id_especialidad = id_especialidad;
+    }
+
+    public List<Clinica> getId_clinica() {
+        return id_clinica;
+    }
+
+    public void setId_clinica(List<Clinica> id_clinica) {
+        this.id_clinica = id_clinica;
+    }
+
     public Veterinario(Long id, String nombre, String apellidos, String email) {
         this.id = id;
         this.nombre = nombre;
