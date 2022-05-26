@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">VetAPPoint</a>
+    <a class="navbar-brand" href="#">VetAppOint</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,13 +24,13 @@
                 <a class="nav-link" href="#">Mi perfil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mis citas</a>
+                <a class="nav-link" href="#">Próximas citas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mis mascotas</a>
+                <a class="nav-link" href="#">Mis clientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mis clinicas</a>
+                <a class="nav-link" href="#">Veterinarios</a>
             </li>
             <li class="nav-item pull-right">
                 <a class="nav-link" href="#">Cerrar sesion</a>
@@ -41,43 +41,42 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Lista de opiniones</h1>
-        <p class="lead">Estas son las diferentes opiniones que tienen las clínicas, no te olvides de dejar la tuya y contarnos tu experiencia!</p>
+        <h1 class="display-4">Bienvenido, CLINICA</h1>
+        <p class="lead">Aquí le mostramos sus próximas citas!</p>
     </div>
-
-
 </div>
+
+
 <div class="container">
     <h1 th:text="${titulo}"></h1>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Usuario</th>
-            <th>Clínica</th>
-            <th>Puntuación</th>
-            <th>Comentario</th>
+            <th>Cliente</th>
+            <th>Mascota</th>
+            <th>Clinica</th>
+            <th>Veterinario</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr th:each="opi : ${opiniones}">
-            <td th:text="${opi.id_usuario.nombre}"></td>
-            <td th:text="${opi.id_clinica.nombre}"></td>
-            <td th:text="${opi.puntuacion}"></td>
-            <td th:text="${opi.comentario}"></td>
+        <tr th:each="cit : ${citas}">
+            <td th:text="${cit.idUsuario.nombre}"></td>
+            <td th:text="${cit.idMascota.nombre}"></td>
+            <td th:text="${cit.idClinica.nombre}"></td>
+            <td th:text="${cit.idVeterinario.nombre}"></td>
+            <td th:text="${cit.fecha}"></td>
+            <td th:text="${cit.hora}"></td>
+
 
         </tr>
 
         </tbody>
     </table>
 </div>
-
-
-
-
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

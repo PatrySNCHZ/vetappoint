@@ -2,6 +2,7 @@ package es.vetappoint.controllers;
 
 import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.dao.UsuarioDao;
+import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -38,17 +39,23 @@ public class LoginController {
             Model modelo) {
             if(esclinica != null) {
 
+
+                Optional<Clinica> clin = clinicaDao.findByEmail(email);
+                if(clin.isPresent() && clave.equals((clin.get().getClave()))) {
+
+                    return "redirect:/clinica/" + clin.get().getId();
+
+                }
             } else {
                 Optional<Usuario> usu = usuarioDao.findByEmail(email);
                 if(usu.isPresent() && clave.equals(usu.get().getClave())) {
 
-                    modelo.addAttribute("resultado", "Tiene acceso");
-                } else {
-                    modelo.addAttribute("resultado", "NO tiene acceso");
+                    return "redirect:/usuario/" + usu.get().getId();
+
                 }
             }
-
-        return "resultado";
+        return "redirect:/login";
     }
+
 
 }

@@ -3,6 +3,8 @@ package es.vetappoint.dao.impl;
 import es.vetappoint.dao.CitaDao;
 import es.vetappoint.dao.UsuarioDao;
 import es.vetappoint.entities.Cita;
+import es.vetappoint.entities.Clinica;
+import es.vetappoint.entities.Opinion;
 import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,5 +45,19 @@ public class CitaDaoImpl implements CitaDao {
     @Override
     public void delete(Long id) {
         em.remove(findOne(id));
+    }
+
+    @Override
+    public List<Cita> listByClinica(Clinica clinica) {
+        List<Cita> lista = em.createQuery("from Cita c where c.idClinica = :id_clinica")
+                .setParameter("id_clinica", clinica ).getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<Cita> listByUsuario(Usuario usuario) {
+        List<Cita> lista = em.createQuery("from Cita c where c.idUsuario = :id_usuario")
+                .setParameter("id_usuario", usuario ).getResultList();
+        return lista;
     }
 }

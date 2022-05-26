@@ -2,6 +2,8 @@ package es.vetappoint.dao.impl;
 
 import es.vetappoint.dao.HistorialVetDao;
 import es.vetappoint.entities.HistorialVet;
+import es.vetappoint.entities.Mascota;
+import es.vetappoint.entities.Tratamiento;
 import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,5 +44,12 @@ public class HistorialVetDaoImpl implements HistorialVetDao {
     @Override
     public void delete(Long id) {
         em.remove(findOne(id));
+    }
+
+    @Override
+    public List<HistorialVet> listByMascotaId(Mascota mascota) {
+        List<HistorialVet> lista = em.createQuery("from HistorialVet hv where hv.mascota = :id_mascota")
+                .setParameter("id_mascota", mascota ).getResultList();
+        return lista;
     }
 }

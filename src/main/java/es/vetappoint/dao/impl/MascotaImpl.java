@@ -2,6 +2,7 @@ package es.vetappoint.dao.impl;
 
 import es.vetappoint.dao.MascotaDao;
 import es.vetappoint.entities.Mascota;
+import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +46,12 @@ public class MascotaImpl implements MascotaDao {
     public void delete(Long id) {
         em.remove(findOne(id));
 
+    }
+
+    @Override
+    public List<Mascota> listByUserId(Usuario usuario) {
+        List<Mascota> lista = em.createQuery("from Mascota m where m.id_usuario = :id_usuario")
+                .setParameter("id_usuario", usuario ).getResultList();
+        return lista;
     }
 }

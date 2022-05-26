@@ -29,6 +29,11 @@ public class Tratamiento implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Veterinario veterinario;
 
+    @ManyToOne(cascade = CascadeType.ALL )
+    @JoinColumn(name="id_historialvet")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private HistorialVet historialvet;
+
     @Column(name = "Medicamento")
     private String medicamento;
     @Column(name = "Posologia")
@@ -121,5 +126,13 @@ public class Tratamiento implements Serializable {
 
     public void setCreadoEl(Date creadoEl) {
         this.creadoEl = creadoEl;
+    }
+
+    public HistorialVet getHistorialvet() {
+        return historialvet;
+    }
+
+    public void setHistorialvet(HistorialVet historialvet) {
+        this.historialvet = historialvet;
     }
 }

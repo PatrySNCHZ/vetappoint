@@ -39,9 +39,9 @@
     </div>
 </nav>
 
-<div class="jumbotron jumbotron-fluid">
+<div th:if="${titulopes}!=null" class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido, USUARIO</h1>
+        <h1 th:text="${titulopes}" class="display-4"></h1>
         <p class="lead">Estas son tus mascotas, recuerda hacer revisiones periódicas y traerlas a
             tu clinica favorita si lo necesitas</p>
     </div>
