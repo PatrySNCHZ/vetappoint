@@ -57,22 +57,15 @@
         <tr>
             <th>Mascota</th>
             <th>Veterinario</th>
-            <th>Medicamento</th>
-            <th>Posología</th>
-            <th>Fecha de inicio</th>
-            <th>Fecha de fin</th>
+
         </tr>
         </thead>
         <tbody>
         <tr th:each="tr : ${tratamiento}">
             <td th:text="${tr.mascota.nombre}"></td>
             <td th:text="${tr.veterinario.nombre}"></td>
-            <td th:text="${tr.medicamento}"></td>
-            <td th:text="${tr.posologia}"></td>
-            <td th:text="${tr.fechaInicio}"></td>
-            <td th:text="${tr.fechaFin}"></td>
 
-
+            <td><a th:href="@{/tratamiento/ficha/{id}(id=${tr.id})}">Ver</a></td>
         </tr>
 
         </tbody>

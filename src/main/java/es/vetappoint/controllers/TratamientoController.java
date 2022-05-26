@@ -54,6 +54,20 @@ public class TratamientoController {
         }
     }
 
+    @GetMapping({"/tratamiento/ficha/{id}"})
+    public String ficha(@PathVariable("id") Long id, Map<String, Object> modelo) {
+        modelo.put("titulopes", "tratamiento");
+        modelo.put("titulo", "Perfil de tratamiento");
+        Tratamiento tratamiento = null;
+        if (id > 0L) {
+            tratamiento = this.tratamientoDao.findOne(id);
+            modelo.put("tratamiento", tratamiento);
+            return "ficha_tratamientos";
+        } else {
+            return "redirect:/listatratamientos";
+        }
+    }
+
     @GetMapping("/listatratamientos/{id}")
     public String listaTratPorMascota(@PathVariable("id") Long id, Model modelo) {
         Mascota mascota = mascotaDAO.findOne(id);

@@ -24,5 +24,5 @@ INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuaci
 INSERT INTO opiniones (id_opinion, id_clinica, id_usuario, comentario,  puntuacion) VALUES (2,  1, 3, 'mal', '1');
 
 INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicamento, posologia, fecha_inicio, fecha_fin) VALUES (1, 2, 2, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01');
-INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicamento, posologia, fecha_inicio, fecha_fin) VALUES (2, 1, 1, 'ibuprofeno', 'cada 8 horas', '2009-02-12','2010-01-01');
+INSERT INTO tratamientos (id_tratamiento, id_mascota, id_veterinario, medicamento, posologia, fecha_inicio, fecha_fin) VALUES (2, 1, 1, 'paracetamol', 'cada 6 horas', '20012-02-12','2012-06-01');
 
