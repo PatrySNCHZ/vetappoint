@@ -55,18 +55,22 @@
         <tr>
             <th>Cliente</th>
             <th>Mascota</th>
+            <th>Clinica</th>
+            <th>Veterinario</th>
             <th>Fecha</th>
             <th>Hora</th>
-            <th>Veterinario</th>
+
         </tr>
         </thead>
         <tbody>
         <tr th:each="cit : ${citas}">
-            <td th:text="${cit.*Nombre del ususario*}"></td>
-            <td th:text="${cit.*Nombre mascota*}"></td>
-            <td th:text="${cit.hora}"></td>
+            <td th:text="${cit.idUsuario.nombre}"></td>
+            <td th:text="${cit.idMascota.nombre}"></td>
+            <td th:text="${cit.idClinica.nombre}"></td>
+            <td th:text="${cit.idVeterinario.nombre}"></td>
             <td th:text="${cit.fecha}"></td>
-            <td th:text="${cit.*Nombre del veterinario*}"></td>
+            <td th:text="${cit.hora}"></td>
+
 
         </tr>
 

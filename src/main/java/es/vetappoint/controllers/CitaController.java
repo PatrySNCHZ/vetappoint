@@ -76,7 +76,7 @@ public class CitaController {
         Clinica clinica = clinicaDao.findOne(id);
         modelo.addAttribute("titulopes", "Citas de hoy");
         modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
-        modelo.addAttribute("clinicas", citaDao.listByClinica(clinica));
+        modelo.addAttribute("citas", citaDao.listByClinica(clinica));
         return "lista_citas";
     }
 
@@ -85,7 +85,7 @@ public class CitaController {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulopes", "Tus citas");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
-        modelo.addAttribute("clinicas", citaDao.listByUsuario(usuario));
+        modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
         return "lista_citas";
     }
 

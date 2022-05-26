@@ -49,14 +49,14 @@ public class CitaDaoImpl implements CitaDao {
 
     @Override
     public List<Cita> listByClinica(Clinica clinica) {
-        List<Cita> lista = em.createQuery("from Cita c where c.id_clinica = :id_clinica")
+        List<Cita> lista = em.createQuery("from Cita c where c.idClinica = :id_clinica")
                 .setParameter("id_clinica", clinica ).getResultList();
         return lista;
     }
 
     @Override
     public List<Cita> listByUsuario(Usuario usuario) {
-        List<Cita> lista = em.createQuery("from Cita c where c.id_usuario = :id_usuario")
+        List<Cita> lista = em.createQuery("from Cita c where c.idUsuario = :id_usuario")
                 .setParameter("id_usuario", usuario ).getResultList();
         return lista;
     }

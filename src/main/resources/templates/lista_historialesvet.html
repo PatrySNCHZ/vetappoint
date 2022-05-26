@@ -66,9 +66,9 @@
             <td th:text="${hv.veterinario.nombre}"></td>
             <td th:text="${hv.mascota.nombre}"></td>
             <td th:text="${hv.procedimiento}"></td>
-            <td><a th:object="{tratamientos}" th:href="@{/tratamiento/{id}(id=${cli.id})}">Tratamiento</a></td>
-
+            <td><a th:href="@{/tratamientos/historial/{id}(id=${hv.id})}">Tratamientos</a></td>
         </tr>
+
 
         </tbody>
     </table>

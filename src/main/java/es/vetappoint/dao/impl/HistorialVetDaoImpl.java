@@ -48,7 +48,7 @@ public class HistorialVetDaoImpl implements HistorialVetDao {
 
     @Override
     public List<HistorialVet> listByMascotaId(Mascota mascota) {
-        List<HistorialVet> lista = em.createQuery("from HistorialVet hv where hv.id_mascota = :id_mascota")
+        List<HistorialVet> lista = em.createQuery("from HistorialVet hv where hv.mascota = :id_mascota")
                 .setParameter("id_mascota", mascota ).getResultList();
         return lista;
     }

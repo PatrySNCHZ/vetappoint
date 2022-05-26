@@ -68,13 +68,14 @@ public class HistorialVet implements Serializable {
         this.procedimiento = procedimiento;
     }
 
+
     @Override
     public String toString() {
-        return "HistorialVeterinario{" +
+        return "HistorialVet{" +
                 "id=" + id +
-                ", idMascota=" + mascota +
-                ", idVeterinario=" + veterinario +
                 ", procedimiento='" + procedimiento + '\'' +
+                ", mascota=" + mascota +
+                ", veterinario=" + veterinario +
                 '}';
     }
 }

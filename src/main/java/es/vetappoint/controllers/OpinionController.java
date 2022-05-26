@@ -76,7 +76,7 @@ public class OpinionController {
         Clinica clinica = clinicaDao.findOne(id);
         modelo.addAttribute("titulopes", "Opiniones");
         modelo.addAttribute("titulo", "Las opiniones de los usuarios sobre" + clinica.getNombre());
-        modelo.addAttribute("clinicas", opinionDao.listByClinica(clinica));
+        modelo.addAttribute("opiniones", opinionDao.listByClinica(clinica));
         return "lista_opiniones";
     }
 
@@ -85,7 +85,7 @@ public class OpinionController {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulopes", "Tus opiniones");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus valoraciones");
-        modelo.addAttribute("clinicas", opinionDao.listByUsuario(usuario));
+        modelo.addAttribute("opiniones", opinionDao.listByUsuario(usuario));
         return "lista_opiniones";
     }
 
