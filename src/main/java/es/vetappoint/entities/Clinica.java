@@ -26,7 +26,7 @@ public class Clinica implements Serializable {
     private String nombre;
     @Column(name="CIF")
     private String cif;
-    //private String clave;
+    private String clave;
     private String email;
     @Column(name="Tlf1")
     private String tlf1;

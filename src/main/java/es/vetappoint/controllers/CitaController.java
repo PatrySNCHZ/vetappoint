@@ -89,4 +89,10 @@ public class CitaController {
         return "lista_citas";
     }
 
+    @GetMapping("/nuevacita")
+    public String nuevacita(Model modelo){
+        Cita nuevacita= new Cita();
+        modelo.addAttribute("titulopes", "NuevaCita");
+        return "nuevacita";
+    }
 }
