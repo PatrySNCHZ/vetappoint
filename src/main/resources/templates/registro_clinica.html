@@ -50,91 +50,91 @@
 
 <div class="container">
 
-    <form th:action="@{/registrar/clinica}" th:object="${clinica}" method="post">
+    <form th:action="@{/guardar/clinica}" th:object="${clinica}" method="post">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre clínica</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{nombre}" class="form-control"/>
+                <input type="text" name="nombre" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">CIF</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{cif}" class="form-control"/>
+                <input type="text" name="cif" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Clave</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{clave}" class="form-control"/>
+                <input type="text" name="clave" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Repita la clave</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{clave}" class="form-control"/>
+                <input type="text" name="clave" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{email}" class="form-control" />
+                <input type="text" name="email" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{tlf1}" class="form-control" />
+                <input type="text" name="tlf1" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Teléfono 2</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{tlf2}" class="form-control"/>
+                <input type="text" name="tlf2" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Teléfono Urgencias</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{tlfu}" class="form-control"/>
+                <input type="text" name="tlfu"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{linea1}" class="form-control"/>
+                <input type="text" name="linea1"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección 2</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{linea2}" class="form-control"/>
+                <input type="text" name="linea2"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{localidad}" class="form-control" />
+                <input type="text" name="localidad"  class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Provincia</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{provincia}" class="form-control"/>
+                <input type="text" name="provincia"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Código Postal</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{cp}" class="form-control"/>
+                <input type="text" name="cp"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Horario</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{horario}" class="form-control"/>
+                <input type="text" name="horario"  class="form-control"/>
             </div>
         </div>
 
