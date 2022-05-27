@@ -14,5 +14,8 @@ public interface ClinicaDao {
     void save(Clinica clinica);
     void delete(Long id);
     public Optional<Clinica> findByEmail(String email);
+    List<Clinica> listaProvincias();
+    List<Clinica> buscarPorProvincia(String provincia);
+    List<Clinica> buscarPorLocalidad(String localidad);
 
 }
