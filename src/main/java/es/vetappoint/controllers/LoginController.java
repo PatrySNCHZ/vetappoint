@@ -57,5 +57,10 @@ public class LoginController {
         return "redirect:/login";
     }
 
+    @GetMapping("/")
+    public String inicio_1(Model modelo){
+
+        return "inicio";
+    }
 
 }
