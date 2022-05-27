@@ -42,76 +42,60 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido, USUARIO</h1>
+        <h1 class="display-4">Solicitar cita</h1>
         <p class="lead">Estas son tus citas ¡Recuerda cancelarla si finalmente no puedes asistir!</p>
     </div>
-
-
-
-
 </div>
 
-<div class="container">
-    <div class="sidebar">
-        <h2>Próximas Citas</h2>
-        <div class="card" style="width: 18rem;">
-
-            <div class="card-body">
-                <h5 class="card-title">Fecha</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Hora</li>
-                <li class="list-group-item">Mascota</li>
-                <li class="list-group-item">Clinica</li>
-                <li class="list-group-item">Veterinario</li>
-
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Cancelar cita</a>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
-        <form>
+        <form th:action="@{/guardar/cita}" th:object="${cita}" method="post">
             <h2>Solicitar cita</h2>
-            <div class="Fecha">
-                <label for="exampleFormControlInput1">Fecha</label>
-                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
 
-            <div class="Hora">
-                <label for="exampleFormControlSelect1">Hora</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Fecha</label>
+                    <div class="col-sm-6">
+                        <input type="date" name="fecha" class="form-control"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Hora</label>
+                <select class="form-control" name="hora">
+                    <option>08:00</option>
+                    <option>9:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
                     <option>12:00</option>
-
+                    <option>13:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    <option>19:00</option>
+                    <option>20:00</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Provincia</label>
-                <select class="form-control" id="exampleFormControlSelect2">
+                <label >Provincia</label>
+                <select class="form-control" >
                     <option>Sevilla</option>
 
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Localidad</label>
-                <select class="form-control" id="exampleFormControlSelect3">
+                <label>Localidad</label>
+                <select class="form-control">
                     <option>Utrera</option>
-
-                </select>
-                <label for="exampleFormControlSelect4">Clinica</label>
-                <select class="form-control" id="exampleFormControlSelect4">
-                    <option>Clinica Vet del Rocio</option>
-
-                </select>
-                <label for="exampleFormControlSelect5">Veterinario</label>
-                <select class="form-control" id="exampleFormControlSelect5">
-                    <option>Ramón Del Valle </option>
-
                 </select>
             </div>
+            <div>
+                <label for=>Clinica</label>
+                <select class="form-control" >
+                    <option>Clinica Vet del Rocio</option>
+                </select>
+            </div>
+
             <button type="button" class="btn btn-primary">Solicitar cita</button>
         </form>
     </div>

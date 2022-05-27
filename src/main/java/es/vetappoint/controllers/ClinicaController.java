@@ -65,11 +65,20 @@ public class ClinicaController {
     }
 
 
+
+    @GetMapping(value ="/registrar/clinica")
+    public String registro(Model model){
+        model.addAttribute("titulo", "Registro");
+        return "registro_clinica";
+    }
+
     @RequestMapping(value ="/guardar/clinica", method = RequestMethod.POST)
     public String guardar(Clinica clinica, Model model){
 
-                clinicaDao.save(clinica);
+        model.addAttribute("clinica", clinicaDao.save(clinica));
 
         return "redirect:/listaclinicas";
     }
+
+
 }
