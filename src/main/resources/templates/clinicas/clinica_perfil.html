@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="es_ES" xmlns:th="http://www.thymeleaf.org"
-                    xmlns:sec=http://www.springframework.org/security/tags">
+<html lang="es_ES" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="plantillas/general :: head">
 </head>
 <body>
@@ -86,12 +85,12 @@
           </tbody>
         </table>
 
-        <div sec:authorize="hasRole('USER')">
+        <div>
           <form action="/favorita" method="POST">
             <input type="submit" class="btn btn-primary" value="Añadir favorita"/>
           </form>
         <div/>
-        <div sec:authorize="hasRole('CLINICA')">
+        <div >
         <a href="#" class="btn btn-primary">Editar perfil</a>
         </div>
       </div>
