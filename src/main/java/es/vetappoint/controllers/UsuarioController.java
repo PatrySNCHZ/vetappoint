@@ -27,7 +27,7 @@ public class UsuarioController {
     public String listaTodas(Model modelo) {
         modelo.addAttribute("titulo", "Listado de usuarios");
         modelo.addAttribute("usuarios", usuarioDao.findAll());
-        return "lista_usuarios";
+        return "usuarios/lista_usuarios";
     }
 
     @GetMapping({"/editar/usuario/{id}"})
@@ -40,7 +40,7 @@ public class UsuarioController {
             modelo.put("usuario", usuario);
             return "form_usuario";
         } else {
-            return "redirect:/listausuarios";
+            return "redirect:/usuarios/listausuarios";
         }
     }
 
@@ -52,9 +52,9 @@ public class UsuarioController {
         if (id > 0L) {
             usuario = this.usuarioDao.findOne(id);
             modelo.put("usuario", usuario);
-            return "usuario_perfil";
+            return "usuarios/usuario_perfil";
         } else {
-            return "redirect:/listausuarios";
+            return "redirect:/usuarios/listausuarios";
         }
     }
 
@@ -64,21 +64,21 @@ public class UsuarioController {
 
         usuarioDao.delete(id);
 
-        return "redirect:/listausuarios";
+        return "redirect:/usuarios/listausuarios";
     }
 
     @GetMapping(value ="/registrar/usuario")
     public String registro(Model model){
-
-        return "redirect:/registro_usuario";
+            model.addAttribute("titulo", "Registro");
+        return "usuarios/registro_usuario";
     }
 
     @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
     public String guardar(Usuario usuario, Model model){
         //encryptService.encryptClave(usuario.getClave());
-        usuarioDao.save(usuario);
+        model.addAttribute("usuario" , usuarioDao.save(usuario));
 
-        return "redirect:/listausuarios";
+        return "redirect:/usuarios/listausuarios";
     }
 
 

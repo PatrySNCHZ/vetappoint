@@ -36,13 +36,13 @@ public class ClinicaDaoImpl implements ClinicaDao {
 
     @Transactional
     @Override
-    public void save(Clinica clinica) {
+    public Clinica save(Clinica clinica) {
         if (clinica.getId() != null && clinica.getId() > 0L) {
             em.merge(clinica);
         } else {
             em.persist(clinica);
         }
-
+    return clinica;
     }
 
     @Transactional

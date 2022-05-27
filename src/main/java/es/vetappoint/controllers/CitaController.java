@@ -38,7 +38,7 @@ public class CitaController {
         modelo.addAttribute("titulopest", "Cita");
         modelo.addAttribute("titulo", "Listado de citas");
         modelo.addAttribute("citas", citaDao.findAll());
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping({"/cita/{id}", "/cita"})
@@ -49,9 +49,9 @@ public class CitaController {
         if (id > 0L) {
             cita = this.citaDao.findOne(id);
             modelo.put("cita", cita);
-            return "solicitar_cita";
+            return "citas/solicitar_cita";
         } else {
-            return "redirect:/listacitas";
+            return "redirect:/citas/listacitas";
         }
     }
 
@@ -60,14 +60,14 @@ public class CitaController {
 
         citaDao.delete(id);
 
-        return "redirect:/lista_citas";
+        return "redirect:/citas/lista_citas";
     }
 
     @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
     public String guardar(Cita cita, Model model){
 
         citaDao.save(cita);
-        return "redirect:/listacitas";
+        return "redirect:/citas/listacitas";
     }
 
 
@@ -77,7 +77,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Citas de hoy");
         modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
         modelo.addAttribute("citas", citaDao.listByClinica(clinica));
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping("/citas/usuario/{id}")
@@ -86,7 +86,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Tus citas");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping("/nuevacita")

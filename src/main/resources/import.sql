@@ -13,8 +13,6 @@ INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (2, '
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (3, 'manuel', 'rodriguez', 'jrod@gmail.com' );
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (4, 'maria', 'rodriguez', 'jrod@gmail.com' );
 
-INSERT INTO especialidades (id_especialidad, nombre_esp) VALUES (1, 'Aves');
-INSERT INTO especialidades (id_especialidad, nombre_esp) VALUES (2, 'Roedores');
 
 INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (1, 'clinica virgen del rocio', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
 INSERT INTO clinicas(id_clinica, nombre, direccion1, direccion2, localidad, provincia, cp, tlf1, tlf2, tlf_urgencia, cif, email,  clave, horario, granularidad ) VALUES (2, 'vet almeria', 'calle roduela', '3', 'sevilla', 'sevilla', '11134', '69584858', '57848545', '65858545', 'B123123123','vdlr1@vet.com',  'abc1234', 'L-V 8:00-14:00','30');
