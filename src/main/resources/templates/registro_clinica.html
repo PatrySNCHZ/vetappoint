@@ -50,123 +50,98 @@
 
 <div class="container">
 
-    <div th:object="${usuario}" th:remove="tag">
-        <ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-            <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
-        </ul>
-    </div>
-    <form th:action="@{/guardar/usuario}" th:object="${usuario}" method="post">
+    <form th:action="@{/guardar/clinica}" th:object="${clinica}" method="post">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre</label>
+            <label class="col-sm-2 col-form-label">Nombre clínica</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{nombre}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+                <input type="text" name="nombre" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Apellidos</label>
+            <label class="col-sm-2 col-form-label">CIF</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{apellidos}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></small>
+                <input type="text" name="cif" class="form-control"/>
             </div>
         </div>
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Clave</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{clave}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></small>
+                <input type="text" name="clave" class="form-control"/>
             </div>
         </div>
-
-
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Repita la clave</label>
+            <div class="col-sm-6">
+                <input type="text" name="clave" class="form-control"/>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{email}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                <input type="text" name="email" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{tlf}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('tlf')}" th:errors="*{tlf}"></small>
+                <input type="text" name="tlf1" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">DNI</label>
+            <label class="col-sm-2 col-form-label">Teléfono 2</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{dni}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
+                <input type="text" name="tlf2" class="form-control"/>
             </div>
         </div>
-
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Teléfono Urgencias</label>
+            <div class="col-sm-6">
+                <input type="text" name="tlfu"  class="form-control"/>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{dir1}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('dir1')}" th:errors="*{dir1}"></small>
+                <input type="text" name="linea1"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección 2</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{dir2}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('dir2')}" th:errors="*{dir2}"></small>
+                <input type="text" name="linea2"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{localidad}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></small>
+                <input type="text" name="localidad"  class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Provincia</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{provincia}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></small>
+                <input type="text" name="provincia"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Código Postal</label>
+            <div class="col-sm-6">
+                <input type="text" name="cp"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Horario</label>
+            <div class="col-sm-6">
+                <input type="text" name="horario"  class="form-control"/>
             </div>
         </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Provincia</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{cp}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"></small>
-            </div>
-        </div>
 
         <div class="form-group row">
             <div class="col-sm-6">
-                <input type="hidden" th:field="*{id}" id="usuarioId">
-                <input type="submit" value="Editar" class="btn btn-primary" />
+                <input type="submit" value="Guardar"  class="btn btn-primary" />
             </div>
         </div>
 
@@ -185,4 +160,4 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
-</html></html>
+</html>

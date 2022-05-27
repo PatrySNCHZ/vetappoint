@@ -34,7 +34,7 @@ public class Usuario implements Serializable {
     private String cp;
     @Column(name = "Provincia")
     private String provincia;
-    private String rol;
+    private String  rol = "ROLE_USER";
     private static final Long serialVersionUID=1L;
 
 
@@ -151,6 +151,9 @@ public class Usuario implements Serializable {
         this.provincia = provincia;
     }
 
+    public String getRol() {
+        return rol;
+    }
 
     @Override
     public String toString() {

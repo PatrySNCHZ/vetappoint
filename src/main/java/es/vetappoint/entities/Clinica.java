@@ -48,6 +48,7 @@ public class Clinica implements Serializable {
     private String horario;
     @Column(name="Granularidad")
     private String granularidad;
+    private String rol = "ROLE_CLINICA";
 
     @Column(name = "creado_el", columnDefinition = "date DEFAULT (curdate())")
     @Temporal(TemporalType.DATE)
@@ -215,6 +216,14 @@ public class Clinica implements Serializable {
 
     public void setVeterinario(List<Veterinario> veterinario) {
         this.veterinarios = veterinario;
+    }
+
+    public List<Veterinario> getVeterinarios() {
+        return veterinarios;
+    }
+
+    public String getRol() {
+        return rol;
     }
 
     @Override
