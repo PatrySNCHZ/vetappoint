@@ -69,8 +69,8 @@ public class UsuarioController {
 
     @GetMapping(value ="/registrar/usuario")
     public String registro(Model model){
-
-        return "redirect:/registro_usuario";
+            model.addAttribute("titulo", "Registro");
+        return "registro_usuario";
     }
 
     @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
