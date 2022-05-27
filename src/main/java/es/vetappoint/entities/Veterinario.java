@@ -21,10 +21,6 @@ public class Veterinario implements Serializable {
     private String apellidos;
     private String email;
 
-    @ManyToMany(mappedBy = "veterinarios",  cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<Especialidad> id_especialidad;
-
     @ManyToMany(mappedBy = "veterinarios", cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Clinica> id_clinica;
@@ -59,14 +55,6 @@ public class Veterinario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Especialidad> getId_especialidad() {
-        return id_especialidad;
-    }
-
-    public void setId_especialidad(List<Especialidad> id_especialidad) {
-        this.id_especialidad = id_especialidad;
     }
 
     public List<Clinica> getId_clinica() {
