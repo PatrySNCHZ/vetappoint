@@ -76,7 +76,7 @@ public class UsuarioController {
     @RequestMapping(value ="/guardar/usuario", method = RequestMethod.POST)
     public String guardar(Usuario usuario, Model model){
         //encryptService.encryptClave(usuario.getClave());
-        usuarioDao.save(usuario);
+        model.addAttribute("usuario" , usuarioDao.save(usuario));
 
         return "redirect:/listausuarios";
     }
