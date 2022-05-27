@@ -36,9 +36,9 @@ public class ClinicaController {
         if (id > 0L) {
            clinica = this.clinicaDao.findOne(id);
             modelo.put("clinica", clinica);
-            return "form_clinica";
+            return "/clinicas/form_clinica";
         } else {
-            return "redirect:/clinicas/listaclinicas";
+            return "redirect:/listaclinicas";
         }
     }
 
@@ -52,7 +52,7 @@ public class ClinicaController {
             modelo.put("clinica", clinica);
             return "clinicas/clinica_perfil";
         } else {
-            return "redirect:/clinicas/listaclinicas";
+            return "redirect:/listaclinicas";
         }
     }
 
@@ -61,7 +61,7 @@ public class ClinicaController {
 
             clinicaDao.delete(id);
 
-        return "redirect:/clinicas/listaclinicas";
+        return "redirect:/listaclinicas";
     }
 
 
@@ -77,7 +77,7 @@ public class ClinicaController {
 
         model.addAttribute("clinica", clinicaDao.save(clinica));
 
-        return "redirect:/clinicas/listaclinicas";
+        return "redirect:/clinica/" + clinica.getId();
     }
 
 

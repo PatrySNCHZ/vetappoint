@@ -38,9 +38,9 @@ public class UsuarioController {
         if (id > 0L) {
             usuario = this.usuarioDao.findOne(id);
             modelo.put("usuario", usuario);
-            return "form_usuario";
+            return "usuarios/form_usuario";
         } else {
-            return "redirect:/usuarios/listausuarios";
+            return "redirect:/usuario/{id}";
         }
     }
 
@@ -54,7 +54,7 @@ public class UsuarioController {
             modelo.put("usuario", usuario);
             return "usuarios/usuario_perfil";
         } else {
-            return "redirect:/usuarios/listausuarios";
+            return "redirect:/listausuarios";
         }
     }
 
@@ -64,7 +64,7 @@ public class UsuarioController {
 
         usuarioDao.delete(id);
 
-        return "redirect:/usuarios/listausuarios";
+        return "redirect:/listausuarios";
     }
 
     @GetMapping(value ="/registrar/usuario")
@@ -78,7 +78,7 @@ public class UsuarioController {
         //encryptService.encryptClave(usuario.getClave());
         model.addAttribute("usuario" , usuarioDao.save(usuario));
 
-        return "redirect:/usuarios/listausuarios";
+        return "redirect:/usuario/"+ usuario.getId();
     }
 
 
