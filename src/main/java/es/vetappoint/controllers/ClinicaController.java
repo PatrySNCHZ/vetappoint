@@ -25,7 +25,7 @@ public class ClinicaController {
         modelo.addAttribute("titulopes", "Clinicas");
         modelo.addAttribute("titulo", "Listado de Clinicas");
         modelo.addAttribute("clinicas", clinicaDao.findAll());
-        return "lista_clinicas";
+        return "clinicas/lista_clinicas";
     }
 
     @GetMapping("/editar/clinica/{id}")
@@ -38,7 +38,7 @@ public class ClinicaController {
             modelo.put("clinica", clinica);
             return "form_clinica";
         } else {
-            return "redirect:/listaclinicas";
+            return "redirect:/clinicas/listaclinicas";
         }
     }
 
@@ -50,9 +50,9 @@ public class ClinicaController {
         if (id > 0L) {
             clinica = this.clinicaDao.findOne(id);
             modelo.put("clinica", clinica);
-            return "clinica_perfil";
+            return "clinicas/clinica_perfil";
         } else {
-            return "redirect:/listaclinicas";
+            return "redirect:/clinicas/listaclinicas";
         }
     }
 
@@ -61,7 +61,7 @@ public class ClinicaController {
 
             clinicaDao.delete(id);
 
-        return "redirect:/listaclinicas";
+        return "redirect:/clinicas/listaclinicas";
     }
 
 
@@ -69,7 +69,7 @@ public class ClinicaController {
     @GetMapping(value ="/registrar/clinica")
     public String registro(Model model){
         model.addAttribute("titulo", "Registro");
-        return "registro_clinica";
+        return "clinicas/registro_clinica";
     }
 
     @RequestMapping(value ="/guardar/clinica", method = RequestMethod.POST)
@@ -77,7 +77,7 @@ public class ClinicaController {
 
         model.addAttribute("clinica", clinicaDao.save(clinica));
 
-        return "redirect:/listaclinicas";
+        return "redirect:/clinicas/listaclinicas";
     }
 
 

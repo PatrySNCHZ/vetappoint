@@ -30,7 +30,7 @@ public class MascotaController {
     public String listarMascotas(Model modelo){
         modelo.addAttribute("titulo", "Listado de Mascotas");
         modelo.addAttribute("mascotas", mascotaDAO.findAll());
-        return "lista_mascotas";
+        return "mascotas/lista_mascotas";
     }
 
     @GetMapping("/editar/mascota/{id}")
@@ -41,9 +41,9 @@ public class MascotaController {
         if (id > 0L) {
             mascota = this.mascotaDAO.findOne(id);
             modelo.put("mascota", mascota);
-            return "form_mascota";
+            return "mascotas/form_mascota";
         } else {
-            return "redirect:/listamascotas";
+            return "redirect:/mascotas/listamascotas";
         }
     }
 
@@ -55,9 +55,9 @@ public class MascotaController {
         if (id > 0L) {
             mascota = this.mascotaDAO.findOne(id);
             modelo.put("mascota", mascota);
-            return "mascota_perfil";
+            return "mascotas/mascota_perfil";
         } else {
-            return "redirect:/listamascotas";
+            return "redirect:/mascotas/listamascotas";
         }
     }
 
@@ -68,7 +68,7 @@ public class MascotaController {
         modelo.addAttribute("titulo", "Tus mascotas");
         modelo.addAttribute("titulopes", "Bienvenido/a al perfil de " + usuario.getNombre());
         modelo.addAttribute("mascotas", mascotaDAO.listByUserId(usuario));
-        return "lista_mascotas";
+        return "mascotas/lista_mascotas";
     }
 
 
@@ -78,7 +78,7 @@ public class MascotaController {
 
         mascotaDAO.delete(id);
 
-        return "redirect:/listamascotas";
+        return "redirect:/mascotas/listamascotas";
     }
 
 
@@ -87,7 +87,7 @@ public class MascotaController {
 
         mascotaDAO.save(mascota);
 
-        return "redirect:/listamascotas";
+        return "redirect:/mascotas/listamascotas";
     }
 
 
