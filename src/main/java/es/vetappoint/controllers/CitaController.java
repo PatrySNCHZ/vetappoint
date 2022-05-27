@@ -8,13 +8,13 @@ import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -89,4 +89,27 @@ public class CitaController {
         return "lista_citas";
     }
 
+    @GetMapping("/nuevacita")
+    public String nuevacita( Model modelo) {
+        Cita nuevacita = new Cita();
+        modelo.addAttribute("titulopes", "Nueva cita");
+        modelo.addAttribute("titulo", "Crear nueva cita");
+        modelo.addAttribute("citas", nuevacita);
+        modelo.addAttribute("provincias", clinicaDao.listaProvincias());
+        return "solicitar_cita";
+    }
+
+    @RequestScope
+    @GetMapping("/filtraporprovincia")
+    public @ResponseBody List<String> filtrarPorProvincia(@RequestParam("provincia") String prov) {
+        List<String> localidades = clinicaDao.buscarPorProvincia(prov);
+        return localidades;
+    }
+
+    @RequestScope
+    @GetMapping("/filtraporlocalidad")
+    public @ResponseBody List<Clinica> filtrarPorLocalidad(@RequestParam("provincia") String prov, @RequestParam("localidad") String localidad) {
+        List<Clinica> clinicas = clinicaDao.buscarPorLocalidad(prov, localidad);
+        return clinicas;
+    }
 }

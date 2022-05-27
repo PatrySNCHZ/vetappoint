@@ -1,5 +1,5 @@
 package es.vetappoint.config;
-
+/*
 import org.grupoplan.qplan.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -66,4 +66,4 @@ public class WebSecurityConfig_grupo4 extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 }
-
+*/

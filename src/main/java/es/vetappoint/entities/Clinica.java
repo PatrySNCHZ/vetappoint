@@ -22,31 +22,31 @@ public class Clinica implements Serializable {
             nullable = false
     )
     private Long id;
-    @Column(name="Nombre")
+    @Column(name="nombre")
     private String nombre;
     @Column(name="CIF")
     private String cif;
-    //private String clave;
+    private String clave;
     private String email;
-    @Column(name="Tlf1")
+    @Column(name="tlf1")
     private String tlf1;
-    @Column(name="Tlf2")
+    @Column(name="tlf2")
     private String tlf2;
-    @Column(name="Tlf_urgencia")
+    @Column(name="tlf_urgencia")
     private String tlfu;
-    @Column(name="Direccion1")
+    @Column(name="direccion1")
     private String linea1;
-    @Column(name="Direccion2")
+    @Column(name="direccion2")
     private String linea2;
-    @Column(name="Localidad")
+    @Column(name="localidad")
     private String localidad;
-    @Column(name="CP")
+    @Column(name="cp")
     private String cp;
-    @Column(name="Provincia")
+    @Column(name="provincia")
     private String provincia;
-    @Column(name="Horario")
+    @Column(name="horario")
     private String horario;
-    @Column(name="Granularidad")
+    @Column(name="granularidad")
     private String granularidad;
     private String rol = "ROLE_CLINICA";
 
