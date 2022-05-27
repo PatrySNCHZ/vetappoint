@@ -50,105 +50,84 @@
 
 <div class="container">
 
-    <div th:object="${usuario}" th:remove="tag">
-        <ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-            <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
-        </ul>
-    </div>
-    <form th:action="@{/guardar/usuario}" th:object="${usuario}" method="post">
+    <form th:action="@{/registrar/usuario}" th:object="${usuario}" method="post">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{nombre}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+                <input type="text"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Apellidos</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{apellidos}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></small>
-            </div>
+                <input type="text" class="form-control"/>
+        </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{email}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                <input type="text"  class="form-control"/>
             </div>
         </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Clave</label>
+            <div class="col-sm-6">
+                <input type="password"  class="form-control"/>
+            </div>
+        </div>
+
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{tlf1}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('tlf1')}" th:errors="*{tlf1}"></small>
+                <input type="text" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{linea1}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('linea1')}" th:errors="*{linea1}"></small>
+                <input type="text"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dirección 2</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{linea2}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('linea2')}" th:errors="*{linea2}"></small>
+                <input type="text"  class="form-control"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{localidad}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></small>
+                <input type="text"  class="form-control" />
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Provincia</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{provincia}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></small>
+                <input type="text"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Código Postal</label>
             <div class="col-sm-6">
-                <input type="text" th:field="*{cp}" class="form-control"
-                       th:errorclass="'form-control alert-danger'" /> <small
-                    class="form-text text-danger"
-                    th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"></small>
+                <input type="text"  class="form-control" />
             </div>
         </div>
 
 
         <div class="form-group row">
             <div class="col-sm-6">
-                <input type="submit" value="Guardar"  class="btn btn-primary" />
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <input type="submit" value="Registrate"  class="btn btn-primary" />
             </div>
         </div>
-
     </form>
-</div>
+        </div>
+            </div>
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
