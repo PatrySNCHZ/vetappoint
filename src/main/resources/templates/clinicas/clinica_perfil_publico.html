@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es_ES" xmlns:th="http://www.thymeleaf.org"
+                    xmlns:sec=http://www.springframework.org/security/tags">
+<head th:replace="plantillas/general :: head">
+</head>
+<body>
+<header th:replace="plantillas/general :: header"></header>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" th:text="${titulo}"></h1>
+    <p class="lead"></p>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <div class="panel-heading">
+
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
+
+      <div class=" col-md-9 col-lg-9 ">
+        <table th:object="${clinica}" class="table table-user-information">
+          <h3 class="panel-title" th:text="${clinica.nombre}"></h3>
+          <tbody>
+          <tr>
+            <td>Nombre:</td>
+            <td th:text="${clinica.nombre}"></td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Email</td>
+            <td th:text="${clinica.email}"></td>
+          </tr>
+          <tr>
+            <td>Direccion</td>
+            <td>
+              <p th:text="${clinica.linea1}"></p>
+              <p th:text="${clinica.linea2}"></p>
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Telefono</td>
+            <td>
+              <p th:text="${clinica.tlf1}"></p>
+              <p th:text="${clinica.tlf2}"></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Teléfono URGENCIAS 24H</td>
+            <td th:text="${clinica.tlfu}"></p>>
+
+            </td>
+          </tr>
+          <tr>
+            <td>Localidad</td>
+            <td th:text="${clinica.localidad}"></td>
+          </tr>
+          <tr>
+            <td>Provincia</td>
+            <td th:text="${clinica.provincia}"></td>
+
+          </tr>
+          <tr>
+            <td>Codigo Postal</td>
+            <td th:text="${clinica.cp}"></td>
+
+          </tr>
+          <tr>
+            <td>Horario</td>
+            <td th:text="${clinica.horario}">
+
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+        <div sec:authorize="hasRole('USER')">
+          <form action="/favorita" method="POST">
+            <input type="submit" class="btn btn-primary" value="Añadir favorita"/>
+          </form>
+        <div/>
+        <div sec:authorize="hasRole('CLINICA')">
+        <a href="#" class="btn btn-primary">Editar perfil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

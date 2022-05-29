@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es_ES" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantillas/general :: head">
+</head>
+<body>
+<header th:replace="plantillas/general :: header"></header>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4" th:text="${titulo}"></h1>
+        <p class="lead"></p>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <form th:action="@{/guardar/tratamiento}" th:object="${tratamiento}" method="post">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nombre clínica</label>
+            <div class="col-sm-6">
+                <input type="text" name="nombre" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">CIF</label>
+            <div class="col-sm-6">
+                <input type="text" name="cif" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Clave</label>
+            <div class="col-sm-6">
+                <input type="text" name="clave" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Repita la clave</label>
+            <div class="col-sm-6">
+                <input type="text" name="clave" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+                <input type="text" name="email" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Teléfono</label>
+            <div class="col-sm-6">
+                <input type="text" name="tlf1" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Teléfono 2</label>
+            <div class="col-sm-6">
+                <input type="text" name="tlf2" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Teléfono Urgencias</label>
+            <div class="col-sm-6">
+                <input type="text" name="tlfu"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Dirección</label>
+            <div class="col-sm-6">
+                <input type="text" name="linea1"  class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Dirección 2</label>
+            <div class="col-sm-6">
+                <input type="text" name="linea2"  class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Localidad</label>
+            <div class="col-sm-6">
+                <input type="text" name="localidad"  class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Provincia</label>
+            <div class="col-sm-6">
+                <input type="text" name="provincia"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Código Postal</label>
+            <div class="col-sm-6">
+                <input type="text" name="cp"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Horario</label>
+            <div class="col-sm-6">
+                <input type="text" name="horario"  class="form-control"/>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <input type="submit" value="Guardar"  class="btn btn-primary" />
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
