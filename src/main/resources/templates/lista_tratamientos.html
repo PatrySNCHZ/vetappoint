@@ -7,8 +7,8 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Lista de clientes</h1>
-        <p class="lead">Estos son los clientes que os prefieren a ti antes que a otras clinicas! Echa un vistazo a sus perfiles y mascotas</p>
+        <h1 class="display-4">Lista de Tratamientos</h1>
+        <p class="lead"></p>
     </div>
 
 
@@ -27,11 +27,13 @@
         </tr>
         </thead>
         <tbody>
+        <a th:href="@{/registrar/tratamiento}">Añadir Tratamiento</a>
         <tr th:each="tr : ${tratamiento}">
             <td th:text="${tr.mascota.nombre}"></td>
             <td th:text="${tr.veterinario.nombre}"></td>
 
             <td><a th:href="@{/tratamiento/ficha/{id}(id=${tr.id})}">Ver</a></td>
+
         </tr>
 
         </tbody>

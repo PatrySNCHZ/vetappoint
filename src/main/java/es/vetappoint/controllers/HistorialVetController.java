@@ -1,16 +1,15 @@
 package es.vetappoint.controllers;
 
-import es.vetappoint.dao.HistorialVetDao;
-import es.vetappoint.dao.MascotaDao;
-import es.vetappoint.dao.TratamientoDao;
-import es.vetappoint.dao.UsuarioDao;
+import es.vetappoint.dao.*;
 import es.vetappoint.entities.HistorialVet;
 import es.vetappoint.entities.Mascota;
 import es.vetappoint.entities.Usuario;
+import es.vetappoint.entities.Veterinario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +32,9 @@ public class HistorialVetController {
     @Qualifier("TratamientoDaoJPA")
     private TratamientoDao tratamientoDao;
 
+    @Autowired
+    @Qualifier("VeterinarioDaoJPA")
+    private VeterinarioDao veterinarioDao;
 
 
     @GetMapping("/listahistorialvet")
@@ -40,6 +42,8 @@ public class HistorialVetController {
         modelo.addAttribute("titulopest", "HistorialVet");
         modelo.addAttribute("titulo", "Listado de historiales veterinarios");
         modelo.addAttribute("historialVet", historialVetDao.findAll());
+        modelo.addAttribute("veterinario",veterinarioDao.findAll());
+        modelo.addAttribute("mascota",mascotaDAO.findAll());
         return "lista_historialesvet";
     }
 
@@ -65,9 +69,19 @@ public class HistorialVetController {
         return "redirect:/listahistorialvet";
     }
 
+    @GetMapping(value ="/registrar/historialvet")
+    public String registro(Model model){
+        model.addAttribute("titulo", "Registro Historial");
+        model.addAttribute("historialVet", new HistorialVet());
+        model.addAttribute("veterinarios",veterinarioDao.findAll());
+        model.addAttribute("mascotas",mascotaDAO.findAll());
+        return "form_historial";
+    }
+
     @RequestMapping(value ="/guardar/historialvet", method = RequestMethod.POST)
     public String guardar(HistorialVet historialVet, Model model){
-
+        model.addAttribute("veterinarios",veterinarioDao.findAll());
+        model.addAttribute("mascotas",mascotaDAO.findAll());
         historialVetDao.save(historialVet);
         return "redirect:/listahistorialvet";
     }

@@ -7,8 +7,8 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Lista de clientes</h1>
-        <p class="lead">Estos son los clientes que os prefieren a ti antes que a otras clinicas! Echa un vistazo a sus perfiles y mascotas</p>
+        <h1 class="display-4">Historial veterinario</h1>
+        <p class="lead"></p>
     </div>
 
 
@@ -28,9 +28,10 @@
         </tr>
         </thead>
         <tbody>
+        <a th:href="@{/registrar/historialvet}">Añadir registro Historial</a>
         <tr th:each="hv : ${historialVet}">
-            <td th:text="${hv.veterinario.nombre}"></td>
-            <td th:text="${hv.mascota.nombre}"></td>
+            <td th:text="${hv.veterinario}"></td>
+            <td th:text="${hv.mascota}"></td>
             <td th:text="${hv.procedimiento}"></td>
             <td><a th:href="@{/tratamientos/historial/{id}(id=${hv.id})}">Tratamientos</a></td>
         </tr>
