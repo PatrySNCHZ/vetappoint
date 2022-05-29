@@ -20,9 +20,7 @@ public class Clinica implements Serializable {
     @Column(
             name = "id_clinica",
             nullable = false
-
     )
-
     private Long id;
     @Column(name="Nombre")
     private String nombre;
@@ -57,6 +55,9 @@ public class Clinica implements Serializable {
     private Date creadoEl;
     private static final long serialVersionUID = 1L;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -69,6 +70,13 @@ public class Clinica implements Serializable {
             inverseJoinColumns = @JoinColumn(name="id_veterinario"))
     private List<Veterinario> veterinarios;
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
 
     public Clinica() {

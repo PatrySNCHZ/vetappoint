@@ -61,5 +61,14 @@ public class ClinicaDaoImpl implements ClinicaDao {
             return Optional.of((Clinica) clin.get(0));
         }
     }
+    @Override
+    public List<Clinica> buscarPorProvincia(String provincia){
+        em.createQuery("select distinct p.provincia from Clinica order by c.provincia").getResultList();
+        return null;
+    }
+    public List<Clinica> buscarPorLocalidad(String localidad){
+        em.createQuery("select distinct l.localidad from Clinica order by d.localidad").getResultList();
+        return null;
+    }
 }
 

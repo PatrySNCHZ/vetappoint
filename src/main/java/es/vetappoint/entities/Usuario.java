@@ -55,8 +55,6 @@ public class Usuario implements Serializable {
         this.provincia = provincia;
     }
 
-
-
     public Long getId() {
         return id;
     }
