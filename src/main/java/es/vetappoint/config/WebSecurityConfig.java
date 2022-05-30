@@ -1,6 +1,5 @@
 package es.vetappoint.config;
 /*
-import org.grupoplan.qplan.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,10 +25,10 @@ public class WebSecurityConfig_grupo4 extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/", "/index*", "/eventos*","/contacto*", "/registro*").permitAll()
+                .antMatchers("/", "/index*", "/veterinarios*","/clinicas*", "/registro*").permitAll()
                 .antMatchers("/administracion*").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/perfil").access("hasRole('ROLE_CLIENTE') or hasRole('ROLE_ANUNCIANTE')")
-                .antMatchers("/eventos/editar_evento*").access("hasRole('ROLE_ANUNCIANTE') or hasRole('ROLE_ADMIN')")
+                .antMatchers("/perfil").access("hasRole('ROLE_CLIENTE') or hasRole('ROLE_CLINICA')")
+                .antMatchers("/eventos/editar_evento*").access("hasRole('ROLE_CLINICA') or hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated();
         http.formLogin()
                 .loginPage("/login")
