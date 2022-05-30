@@ -7,14 +7,13 @@ import javax.persistence.PersistenceContext;
 
 import es.vetappoint.dao.ClinicaDao;
 import es.vetappoint.entities.Clinica;
-import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.annotation.RequestScope;
 
 @Repository("ClinicaDaoJPA")
 public class ClinicaDaoImpl implements ClinicaDao {
+
+
 
     @PersistenceContext
     private EntityManager em;

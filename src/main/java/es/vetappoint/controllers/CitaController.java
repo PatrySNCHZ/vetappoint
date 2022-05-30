@@ -10,11 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -63,12 +62,6 @@ public class CitaController {
         return "redirect:/lista_citas";
     }
 
-    @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
-    public String guardar(Cita cita, Model model){
-
-        citaDao.save(cita);
-        return "redirect:/listacitas";
-    }
 
 
     @GetMapping("/citas/clinica/{id}")
@@ -97,13 +90,25 @@ public class CitaController {
         modelo.addAttribute("citas", nuevacita);
         modelo.addAttribute("provincias", clinicaDao.listaProvincias());
         modelo.addAttribute("localidades", clinicaDao.listarLocalidades());
-        return "solicitar_cita";
+
+        return "citas/solicitar_cita";
+
     }
+
+    @PostMapping(value ="/guardar/cita")
+    public String guardar( Cita cita, Model model){
+
+        citaDao.save(cita);
+        return "redirect:/listacitas";
+    }
+
+
 
     @RequestScope
     @GetMapping("/filtraporprovincia")
-    public @ResponseBody List<String> filtrarPorProvincia(@RequestParam("provincia") String prov) {
-        List<String> localidades = clinicaDao.buscarPorProvincia(prov);
+    public @ResponseBody
+    List<String> filtrarPorProvincia(@RequestParam("provincia") String prov) {
+            List<String> localidades = clinicaDao.buscarPorProvincia(prov);
         return localidades;
     }
 

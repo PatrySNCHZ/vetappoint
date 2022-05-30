@@ -19,6 +19,9 @@ public interface ClinicaDao {
     List<String> buscarPorProvincia(String provincia);
     List<Clinica> buscarPorLocalidad(String provincia, String localidad);
 
-    List<Clinica> buscarPorProvincia(String provincia);
-    List<Clinica> buscarPorLocalidad(String localidad);
+//      List<Clinica> filtrarPorLocalidad(String provincia, String localidad);
+//      List<Clinica> buscarPorProvincia(String provincia);
+//      List<Clinica> buscarPorLocalidad(String localidad);
+
+
 }
