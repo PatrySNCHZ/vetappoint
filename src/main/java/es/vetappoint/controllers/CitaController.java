@@ -84,7 +84,7 @@ public class CitaController {
     public String listarCitasPorUsuario(@PathVariable("id") Long id, Model modelo) {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulopes", "Tus citas");
-        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
+        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + " aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
         return "citas/lista_citas";
     }
@@ -93,6 +93,6 @@ public class CitaController {
     public String nuevacita(Model modelo){
         Cita nuevacita= new Cita();
         modelo.addAttribute("titulopes", "NuevaCita");
-        return "nuevacita";
+        return "citas/solicitar_cita";
     }
 }
