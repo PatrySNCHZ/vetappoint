@@ -51,7 +51,7 @@ public class CitaController {
             modelo.put("cita", cita);
             return "citas/solicitar_cita";
         } else {
-            return "redirect:/citas/listacitas";
+            return "redirect:/listacitas";
         }
     }
 
@@ -60,14 +60,14 @@ public class CitaController {
 
         citaDao.delete(id);
 
-        return "redirect:/citas/lista_citas";
+        return "redirect:/lista_citas";
     }
 
     @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
     public String guardar(Cita cita, Model model){
 
         citaDao.save(cita);
-        return "redirect:/citas/listacitas";
+        return "redirect:/listacitas";
     }
 
 

@@ -45,7 +45,7 @@ public class MascotaController {
             modelo.put("mascota", mascota);
             return "mascotas/form_mascota";
         } else {
-            return "redirect:/mascotas/listamascotas";
+            return "redirect:/listamascotas";
         }
     }
 
@@ -60,7 +60,7 @@ public class MascotaController {
             modelo.put("mascota", mascota);
             return "mascotas/mascota_perfil";
         } else {
-            return "redirect:/mascotas/listamascotas";
+            return "redirect:/listamascotas";
         }
     }
 
@@ -81,7 +81,7 @@ public class MascotaController {
 
         mascotaDAO.delete(id);
 
-        return "redirect:/mascotas/listamascotas";
+        return "redirect:/listamascotas";
     }
 
 
@@ -91,7 +91,7 @@ public class MascotaController {
 
         mascotaDAO.save(mascota);
 
-        return "redirect:/mascotas/listamascotas";
+        return "redirect:/listamascotas";
     }
 
 
