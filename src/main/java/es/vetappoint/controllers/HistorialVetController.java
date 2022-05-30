@@ -1,6 +1,8 @@
 package es.vetappoint.controllers;
 
+import com.fasterxml.jackson.databind.deser.std.MapEntryDeserializer;
 import es.vetappoint.dao.*;
+import es.vetappoint.dto.HistorialVetDTO;
 import es.vetappoint.entities.HistorialVet;
 import es.vetappoint.entities.Mascota;
 import es.vetappoint.entities.Usuario;
@@ -77,14 +79,17 @@ public class HistorialVetController {
         return "form_historial";
     }
 
-    @RequestMapping(value ="/guardar/historialvet", method = RequestMethod.POST,  consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String guardar(@RequestBody HistorialForm historialForm, Model model){
+    @PostMapping(value ="/guardar/historialvet", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String guardar(@RequestBody HistorialVetDTO historialVetDTO, Model model){
         model.addAttribute("veterinarios",veterinarioDao.findAll());
         model.addAttribute("mascotas",mascotaDAO.findAll());
+
+        Mascota mascota = mascotaDAO.findOne(historialVetDTO.getIdMascota());
+        Veterinario veterinario = veterinarioDao.findOne(historialVetDTO.getIdVeterinario());
         HistorialVet historialVet = new HistorialVet();
-        historialVet.setProcedimiento(historialForm.getProcedimiento());
-        historialVet.setMascota(mascotaDAO.findOne(historialForm.getMascota_id()));
-        historialVet.setVeterinario(veterinarioDao.findOne(historialForm.getVeterinario_id()));
+        historialVet.setProcedimiento(historialVetDTO.getProcedimiento());
+        historialVet.setMascota(mascota);
+        historialVet.setVeterinario(veterinario);
         historialVetDao.save(historialVet);
         return "redirect:/listahistorialvet";
     }
@@ -98,7 +103,7 @@ public class HistorialVetController {
         return "lista_historialesvet";
     }
 }
-
+/*
 @Data
 class HistorialForm {
     private String procedimiento;
@@ -106,3 +111,4 @@ class HistorialForm {
     private Long veterinario_id;
 
 }
+*/

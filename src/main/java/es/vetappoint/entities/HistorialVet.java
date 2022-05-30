@@ -2,6 +2,7 @@ package es.vetappoint.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -78,4 +79,5 @@ public class HistorialVet implements Serializable {
                 ", veterinario=" + veterinario +
                 '}';
     }
+
 }

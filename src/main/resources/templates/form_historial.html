@@ -15,7 +15,7 @@
 
 <div class="container">
 
-    <form th:action="@{/guardar/historialvet}" th:object="${historialVet}" method="post">
+    <form th:action="@{/guardar/historialvet/}" th:object="${historialVet}" method="post">
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Procedimiento</label>
@@ -25,16 +25,16 @@
         </div>
 
         <div class="form-group">
-            <select name="mascota" th:field="*{mascota.id}">
+            <select name="mascota" >
                 <option value="#" disabled = "disabled" selected="selected">Mascota</option>
-                <option th:each="mas: ${mascotas}" th:value="${mas}" th:text="${mas.nombre}">Mascota</option>
+                <option th:each="mas: ${mascotas}" th:value="${mas.id}" th:text="${mas.nombre}">Mascota</option>
             </select>
         </div>
 
         <div class="form-group">
-            <select name="veterinario" th:field="*{veterinario.id}">
+            <select name="veterinario">
                 <option value="#" disabled = "disabled" selected="selected">Veterinario</option>
-                <option  th:each="vet: ${veterinarios}" th:value="${vet}" th:text="${vet.nombre}">Veterinario</option>
+                <option  th:each="vet: ${veterinarios}" th:value="${vet.id}" th:text="${vet.nombre}">Veterinario</option>
             </select>
         </div>
 

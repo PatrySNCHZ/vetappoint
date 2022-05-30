@@ -22,8 +22,6 @@ public class Mascota implements Serializable {
     private Usuario id_usuario;
 
 
-    @Column(name="Foto")
-    private String foto;
     @Column(name="Nombre")
     private String nombre;
     @Column(name="Especie")
@@ -58,14 +56,6 @@ public class Mascota implements Serializable {
 
 
 
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
 
     public String getNombre() {
         return nombre;
@@ -128,7 +118,6 @@ public class Mascota implements Serializable {
         return "Mascota{" +
                 "id=" + id +
                 ", idpropietario=" + id_usuario +
-                ", foto='" + foto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", especie='" + especie + '\'' +
                 ", edad='" + edad + '\'' +

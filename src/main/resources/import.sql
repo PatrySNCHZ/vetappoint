@@ -3,10 +3,10 @@ INSERT INTO usuarios (id_usuario,nombre,apellidos,clave,email,tlf,dni,linea_1,li
 INSERT INTO usuarios (id_usuario,nombre,apellidos,clave,email,tlf,dni,linea_1,linea_2,localidad,cp,provincia) VALUES (3,'Cristina ','Gómez Puerta','abcd1234','cris65@gmail.com','7(864)021-41-72','43042177T','Rúa Anna, 13','6º C','Sevilla','25957','Sevilla');
 
 
-INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(1, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(2, 1, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(3, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
-INSERT INTO mascotas (id_mascota, id_usuario, Foto, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(4, 2, "https://pbs.twimg.com/media/FS5PnB7WYAEfEos?format=jpg&name=large","Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(1, 2, "Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(2, 1, "Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario,  Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(3, 2, "Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
+INSERT INTO mascotas (id_mascota, id_usuario, Nombre, Especie, Edad, Raza, Descripcion, Chip, Genero) VALUES(4, 2, "Vane", "perro", 3, "chucho","enano",724111111111111, "Femenino" );
 
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (1, 'julian', 'rodriguez', 'jrod@gmail.com' );
 INSERT INTO veterinarios (id_veterinario, nombre, apellidos, email) VALUES (2, 'pepe', 'rodriguez', 'jrod@gmail.com' );
