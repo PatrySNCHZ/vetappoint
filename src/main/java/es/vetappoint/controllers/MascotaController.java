@@ -94,7 +94,11 @@ public class MascotaController {
         return "redirect:/listamascotas";
     }
 
-
+    @GetMapping(value ="/registrar/mascota")
+    public String registro(Model model){
+        model.addAttribute("titulo", "Registro");
+        return "mascotas/registro_mascota";
+    }
 
 
 }
