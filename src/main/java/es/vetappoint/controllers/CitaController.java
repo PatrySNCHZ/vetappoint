@@ -10,11 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -38,7 +37,7 @@ public class CitaController {
         modelo.addAttribute("titulopest", "Cita");
         modelo.addAttribute("titulo", "Listado de citas");
         modelo.addAttribute("citas", citaDao.findAll());
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping({"/cita/{id}", "/cita"})
@@ -49,9 +48,9 @@ public class CitaController {
         if (id > 0L) {
             cita = this.citaDao.findOne(id);
             modelo.put("cita", cita);
-            return "citas/solicitar_cita";
+            return "solicitar_cita";
         } else {
-            return "redirect:/citas/listacitas";
+            return "redirect:/listacitas";
         }
     }
 
@@ -60,15 +59,9 @@ public class CitaController {
 
         citaDao.delete(id);
 
-        return "redirect:/citas/lista_citas";
+        return "redirect:/lista_citas";
     }
 
-    @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
-    public String guardar(Cita cita, Model model){
-
-        citaDao.save(cita);
-        return "redirect:/citas/listacitas";
-    }
 
 
     @GetMapping("/citas/clinica/{id}")
@@ -77,7 +70,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Citas de hoy");
         modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
         modelo.addAttribute("citas", citaDao.listByClinica(clinica));
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping("/citas/usuario/{id}")
@@ -86,13 +79,43 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Tus citas");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping("/nuevacita")
-    public String nuevacita(Model modelo){
-        Cita nuevacita= new Cita();
-        modelo.addAttribute("titulopes", "NuevaCita");
-        return "nuevacita";
+    public String nuevacita( Model modelo) {
+        Cita nuevacita = new Cita();
+        modelo.addAttribute("titulopes", "Nueva cita");
+        modelo.addAttribute("titulo", "Crear nueva cita");
+        modelo.addAttribute("citas", nuevacita);
+        modelo.addAttribute("provincias", clinicaDao.listaProvincias());
+        modelo.addAttribute("localidades", clinicaDao.listarLocalidades());
+
+        return "citas/solicitar_cita";
+
+    }
+
+    @PostMapping(value ="/guardar/cita")
+    public String guardar( Cita cita, Model model){
+
+        citaDao.save(cita);
+        return "redirect:/listacitas";
+    }
+
+
+
+    @RequestScope
+    @GetMapping("/filtraporprovincia")
+    public @ResponseBody
+    List<String> filtrarPorProvincia(@RequestParam("provincia") String prov) {
+            List<String> localidades = clinicaDao.buscarPorProvincia(prov);
+        return localidades;
+    }
+
+    @RequestScope
+    @GetMapping("/filtraporlocalidad")
+    public @ResponseBody List<Clinica> filtrarPorLocalidad(@RequestParam("provincia") String prov, @RequestParam("localidad") String localidad) {
+        List<Clinica> clinicas = clinicaDao.buscarPorLocalidad(prov, localidad);
+        return clinicas;
     }
 }

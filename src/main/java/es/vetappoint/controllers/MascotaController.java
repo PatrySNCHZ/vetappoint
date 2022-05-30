@@ -26,6 +26,7 @@ public class MascotaController {
     @Qualifier("UsuarioDaoJPA")
     private UsuarioDao usuarioDao;
 
+    // Mostrar lista de mascotas
     @GetMapping("/listamascotas")
     public String listarMascotas(Model modelo){
         modelo.addAttribute("titulo", "Listado de Mascotas");
@@ -33,6 +34,7 @@ public class MascotaController {
         return "mascotas/lista_mascotas";
     }
 
+    // editar mascota
     @GetMapping("/editar/mascota/{id}")
     public String editar(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopes", "Mascota");
@@ -43,10 +45,11 @@ public class MascotaController {
             modelo.put("mascota", mascota);
             return "mascotas/form_mascota";
         } else {
-            return "redirect:/mascotas/listamascotas";
+            return "redirect:/listamascotas";
         }
     }
 
+    // Mostrar mascota por su id
     @GetMapping("/mascota/{id}")
     public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopes", "Perfil de clinica");
@@ -57,11 +60,11 @@ public class MascotaController {
             modelo.put("mascota", mascota);
             return "mascotas/mascota_perfil";
         } else {
-            return "redirect:/mascotas/listamascotas";
+            return "redirect:/listamascotas";
         }
     }
 
-
+// Mostrar lista de mascotas por usuario
     @GetMapping("/listamascotas/{id}")
     public String listaMascotasPorUsuario(@PathVariable("id") Long id, Model modelo) {
         Usuario usuario = usuarioDao.findOne(id);
@@ -72,25 +75,30 @@ public class MascotaController {
     }
 
 
-
+    // Eliminar mascota
     @GetMapping({"/eliminar/mascota/{id}"})
     public String borrar(@PathVariable("id") Long id, Model modelo) {
 
         mascotaDAO.delete(id);
 
-        return "redirect:/mascotas/listamascotas";
+        return "redirect:/listamascotas";
     }
 
 
+    // guardar mascota editada/guardada
     @RequestMapping(value ="/guardar/mascota", method = RequestMethod.POST)
     public String guardar(Mascota mascota, Model model){
 
         mascotaDAO.save(mascota);
 
-        return "redirect:/mascotas/listamascotas";
+        return "redirect:/listamascotas";
     }
 
-
+    @GetMapping(value ="/registrar/mascota")
+    public String registro(Model model){
+        model.addAttribute("titulo", "Registro");
+        return "mascotas/registro_mascota";
+    }
 
 
 }

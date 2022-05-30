@@ -4,50 +4,47 @@
 </head>
 <body>
 <header th:replace="plantillas/general :: header"></header>
-
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Lista de usuarios</h1>
-        <p class="lead"></p>
+        <h1 class="display-4">Bienvenido...</h1>
+        <p class="lead">Aquí le mostramos nuestros veterinarios disponibles</p>
     </div>
 </div>
 
+
 <div class="container">
-    <h1 th:text="${titulo}"></h1>
 
-    <table class="table table-info table-striped">
-        <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Mascotas</th>
+    <div class="container">
+        <h1 th:text="${titulo}"></h1>
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="usu : ${usuarios}">
-            <td th:text="${usu.nombre}"></td>
-            <td th:text="${usu.apellidos}"></td>
-            <td th:text="${usu.email}"></td>
-            <td th:text="${usu.tlf}"></td>
-            <td><a href="/listamascotas">Sus mascotas</a></td>
-        </tr>
-
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
 
 
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vet : ${veterinario}">
+                <td th:text="${vet.nombre}"></td>
+                <td th:text="${vet.apellidos}"></td>
+                <td th:text="${vet.email}"></td>
 
-
+                <td><a th:href="@{/editar/veterinario/{id}(id=${vet.id})}">Editar</a></td>
+                <td><a th:href="@{/eliminar/veterinario/{id}(id=${vet.id})}">Eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
-
-
-
-<footer th:replace="plantillas/general :: footer"></footer>
-
+</div>
+</div>
+</body>
 
 
 
@@ -62,7 +59,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-
 </body>
 </html>
