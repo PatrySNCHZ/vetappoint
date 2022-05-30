@@ -22,19 +22,21 @@ public class Mascota implements Serializable {
     private Usuario id_usuario;
 
 
-    @Column(name="Nombre")
+    @Column(name="foto")
+    private String foto;
+    @Column(name="nombre")
     private String nombre;
-    @Column(name="Especie")
+    @Column(name="especie")
     private String especie;
-    @Column(name="Raza")
+    @Column(name="raza")
     private String raza;
-    @Column(name="Edad")
-    private String edad;
-    @Column(name="Descripcion")
+    @Column(name="edad")
+    private Long edad;
+    @Column(name="descripcion")
     private String descripcion;
-    @Column(name="Chip")
+    @Column(name="chip")
     private String chip;
-    @Column(name="Genero")
+    @Column(name="genero")
     private String genero;
     private static final Long serialVersionUID=1L;
 
@@ -57,6 +59,14 @@ public class Mascota implements Serializable {
 
 
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -73,11 +83,11 @@ public class Mascota implements Serializable {
         this.especie = especie;
     }
 
-    public String getEdad() {
+    public Long getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(Long edad) {
         this.edad = edad;
     }
 
@@ -118,6 +128,7 @@ public class Mascota implements Serializable {
         return "Mascota{" +
                 "id=" + id +
                 ", idpropietario=" + id_usuario +
+                ", foto='" + foto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", especie='" + especie + '\'' +
                 ", edad='" + edad + '\'' +

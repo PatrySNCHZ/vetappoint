@@ -10,6 +10,8 @@ import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.RequestScope;
 
 @Repository("ClinicaDaoJPA")
 public class ClinicaDaoImpl implements ClinicaDao {
@@ -61,14 +63,34 @@ public class ClinicaDaoImpl implements ClinicaDao {
             return Optional.of((Clinica) clin.get(0));
         }
     }
+
     @Override
-    public List<Clinica> buscarPorProvincia(String provincia){
-        em.createQuery("select distinct p.provincia from Clinica order by c.provincia").getResultList();
-        return null;
+    public List<String> listaProvincias() {
+        List<String> lista = em.createQuery("select distinct c.provincia from Clinica c order by c.provincia").getResultList();
+        return lista;
     }
-    public List<Clinica> buscarPorLocalidad(String localidad){
-        em.createQuery("select distinct l.localidad from Clinica order by d.localidad").getResultList();
-        return null;
+
+    @Override
+    public List<String> listarLocalidades() {
+        List<String> lista = em.createQuery("select distinct c.localidad from Clinica c order by c.localidad").getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<String> buscarPorProvincia(String provincia) {
+        List<String> localidades = em.createQuery("select c.localidad from Clinica c where c.provincia = :prov")
+                .setParameter("prov", provincia)
+                .getResultList();
+        return localidades;
+    }
+
+    @Override
+    public List<Clinica> buscarPorLocalidad(String provincia, String localidad) {
+        List<Clinica> clinicas = em.createQuery("from Clinica c where c.provincia = :prov and c.localidad = :loc")
+                .setParameter("prov", provincia)
+                .setParameter("loc", localidad)
+                .getResultList();
+        return clinicas;
     }
 }
 

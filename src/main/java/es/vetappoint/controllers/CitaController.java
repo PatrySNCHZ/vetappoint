@@ -38,7 +38,7 @@ public class CitaController {
         modelo.addAttribute("titulopest", "Cita");
         modelo.addAttribute("titulo", "Listado de citas");
         modelo.addAttribute("citas", citaDao.findAll());
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping({"/cita/{id}", "/cita"})
@@ -49,9 +49,9 @@ public class CitaController {
         if (id > 0L) {
             cita = this.citaDao.findOne(id);
             modelo.put("cita", cita);
-            return "citas/solicitar_cita";
+            return "solicitar_cita";
         } else {
-            return "redirect:/citas/listacitas";
+            return "redirect:/listacitas";
         }
     }
 
@@ -60,14 +60,14 @@ public class CitaController {
 
         citaDao.delete(id);
 
-        return "redirect:/citas/lista_citas";
+        return "redirect:/lista_citas";
     }
 
     @RequestMapping(value ="/guardar/cita", method = RequestMethod.POST)
     public String guardar(Cita cita, Model model){
 
         citaDao.save(cita);
-        return "redirect:/citas/listacitas";
+        return "redirect:/listacitas";
     }
 
 
@@ -77,7 +77,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Citas de hoy");
         modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
         modelo.addAttribute("citas", citaDao.listByClinica(clinica));
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping("/citas/usuario/{id}")
@@ -86,13 +86,31 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Tus citas");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
-        return "citas/lista_citas";
+        return "lista_citas";
     }
 
     @GetMapping("/nuevacita")
-    public String nuevacita(Model modelo){
-        Cita nuevacita= new Cita();
-        modelo.addAttribute("titulopes", "NuevaCita");
-        return "nuevacita";
+    public String nuevacita( Model modelo) {
+        Cita nuevacita = new Cita();
+        modelo.addAttribute("titulopes", "Nueva cita");
+        modelo.addAttribute("titulo", "Crear nueva cita");
+        modelo.addAttribute("citas", nuevacita);
+        modelo.addAttribute("provincias", clinicaDao.listaProvincias());
+        modelo.addAttribute("localidades", clinicaDao.listarLocalidades());
+        return "solicitar_cita";
+    }
+
+    @RequestScope
+    @GetMapping("/filtraporprovincia")
+    public @ResponseBody List<String> filtrarPorProvincia(@RequestParam("provincia") String prov) {
+        List<String> localidades = clinicaDao.buscarPorProvincia(prov);
+        return localidades;
+    }
+
+    @RequestScope
+    @GetMapping("/filtraporlocalidad")
+    public @ResponseBody List<Clinica> filtrarPorLocalidad(@RequestParam("provincia") String prov, @RequestParam("localidad") String localidad) {
+        List<Clinica> clinicas = clinicaDao.buscarPorLocalidad(prov, localidad);
+        return clinicas;
     }
 }
