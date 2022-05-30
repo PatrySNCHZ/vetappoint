@@ -71,6 +71,12 @@ public class ClinicaDaoImpl implements ClinicaDao {
     }
 
     @Override
+    public List<String> listarLocalidades() {
+        List<String> lista = em.createQuery("select distinct c.localidad from Clinica c order by c.localidad").getResultList();
+        return lista;
+    }
+
+    @Override
     public List<String> buscarPorProvincia(String provincia) {
         List<String> localidades = em.createQuery("select c.localidad from Clinica c where c.provincia = :prov")
                 .setParameter("prov", provincia)

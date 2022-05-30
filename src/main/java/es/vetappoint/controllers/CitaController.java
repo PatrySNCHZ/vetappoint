@@ -96,6 +96,7 @@ public class CitaController {
         modelo.addAttribute("titulo", "Crear nueva cita");
         modelo.addAttribute("citas", nuevacita);
         modelo.addAttribute("provincias", clinicaDao.listaProvincias());
+        modelo.addAttribute("localidades", clinicaDao.listarLocalidades());
         return "solicitar_cita";
     }
 

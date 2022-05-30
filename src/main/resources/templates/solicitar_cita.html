@@ -86,7 +86,7 @@
             <div class="form-group" >
                 <label>Localidad</label>
                 <select class="form-control" id="localidad">
-
+                    <option th:each="loc : ${localidades}" th:value="${loc}" th:text="${loc}"></option>
                 </select>
             </div>
             <div>
