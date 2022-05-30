@@ -84,11 +84,15 @@ public class TratamientoController {
         HistorialVet historialVet = historialVetDao.findOne(id);
         modelo.addAttribute("titulo", "Los tratamientos de tu mascota");
         modelo.addAttribute("titulopes", "Los tratamientos de " + historialVet.getMascota().getNombre());
-        modelo.addAttribute("tratamientos", tratamientoDao.listByHistorial(historialVet));
+        modelo.addAttribute("tratamiento", tratamientoDao.listByHistorial(historialVet));
         return "lista_tratamientos";
     }
 
-
+    @GetMapping(value ="/registrar/tratamiento")
+    public String registro(Model model){
+        model.addAttribute("titulo", "Registro");
+        return "form_tratamientos";
+    }
 
     @GetMapping({"/eliminar/tratamiento/{id}"})
     public String borrar(@PathVariable("id") Long id, Model modelo) {
