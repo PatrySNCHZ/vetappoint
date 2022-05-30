@@ -7,7 +7,6 @@ import es.vetappoint.entities.HistorialVet;
 import es.vetappoint.entities.Mascota;
 import es.vetappoint.entities.Usuario;
 import es.vetappoint.entities.Veterinario;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;

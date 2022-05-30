@@ -10,15 +10,12 @@
         <h1 class="display-4">Lista de usuarios</h1>
         <p class="lead"></p>
     </div>
-
-
-
-
 </div>
+
 <div class="container">
     <h1 th:text="${titulo}"></h1>
 
-    <table class="table table-striped">
+    <table class="table table-info table-striped">
         <thead>
         <tr>
             <th>Nombre</th>
@@ -26,8 +23,6 @@
             <th>Email</th>
             <th>Teléfono</th>
             <th>Mascotas</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
 
         </tr>
         </thead>
@@ -38,17 +33,20 @@
             <td th:text="${usu.email}"></td>
             <td th:text="${usu.tlf}"></td>
             <td><a href="/listamascotas">Sus mascotas</a></td>
-
-            <td><a th:href="@{/editar/usuario/{id}(id=${usu.id})}">Editar</a></td>
-            <td><a th:href="@{/eliminar/usuario/{id}(id=${usu.id})}">Eliminar</a></td>
         </tr>
 
         </tbody>
     </table>
+
+
+
+
 </div>
 
 
 
+
+<footer th:replace="plantillas/general :: footer"></footer>
 
 
 
@@ -64,5 +62,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
 </body>
 </html>

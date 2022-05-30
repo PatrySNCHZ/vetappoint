@@ -47,7 +47,7 @@ public class UsuarioController {
     @GetMapping({"/usuario/{id}"})
     public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopest", "Usuario");
-        modelo.put("titulo", "Perfil de usuario");
+        modelo.put("titulo", "Perfil de usuario " + usuarioDao.findOne(id).getNombre());
         Usuario usuario = null;
         if (id > 0L) {
             usuario = this.usuarioDao.findOne(id);
@@ -78,7 +78,7 @@ public class UsuarioController {
         //encryptService.encryptClave(usuario.getClave());
         model.addAttribute("usuario" , usuarioDao.save(usuario));
 
-        return "redirect:/listausuarios";
+        return "redirect:/usuario/" + usuario.getId();
     }
 
 
