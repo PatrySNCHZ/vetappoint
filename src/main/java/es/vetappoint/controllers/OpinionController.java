@@ -84,7 +84,7 @@ public class OpinionController {
     public String listarOpinionPorUsuario(@PathVariable("id") Long id, Model modelo) {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulopes", "Tus opiniones");
-        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus valoraciones");
+        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + " aquí están tus valoraciones");
         modelo.addAttribute("opiniones", opinionDao.listByUsuario(usuario));
         return "lista_opiniones";
     }

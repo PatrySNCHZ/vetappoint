@@ -69,7 +69,7 @@ public class MascotaController {
     public String listaMascotasPorUsuario(@PathVariable("id") Long id, Model modelo) {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulo", "Tus mascotas");
-        modelo.addAttribute("titulopes", "Bienvenido/a al perfil de " + usuario.getNombre());
+        modelo.addAttribute("titulopes", "Estas son tus mascotas " + usuario.getNombre());
         modelo.addAttribute("mascotas", mascotaDAO.listByUserId(usuario));
         return "mascotas/lista_mascotas";
     }

@@ -29,8 +29,6 @@
                 <th>Dirección</th>
                 <th>Dirección 2</th>
                 <th>Horario</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
 
 
             </tr>
@@ -47,9 +45,7 @@
                 <td th:text="${cli.linea2}"></td>
                 <td th:text="${cli.horario}"></td>
 
-                <td><a th:href="@{/editar/clinica/{id}(id=${cli.id})}">Editar</a></td>
-                <td><a th:href="@{/eliminar/clinica/{id}(id=${cli.id})}">Eliminar</a></td>
-            </tr>
+
             </tbody>
         </table>
     </div>

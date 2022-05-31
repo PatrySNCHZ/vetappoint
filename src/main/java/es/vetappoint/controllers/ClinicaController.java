@@ -45,7 +45,7 @@ public class ClinicaController {
     @GetMapping("/clinica/{id}")
     public String perfil(@PathVariable("id") Long id, Map<String, Object> modelo) {
         modelo.put("titulopes", "Perfil de clinica");
-        modelo.put("titulo", "Bienvenido/a al perfil de " + clinicaDao.findOne(id).getNombre());
+        modelo.put("titulo", "Perfil de " + clinicaDao.findOne(id).getNombre());
         Clinica clinica = null;
         if (id > 0L) {
             clinica = this.clinicaDao.findOne(id);
@@ -77,7 +77,7 @@ public class ClinicaController {
 
         model.addAttribute("clinica", clinicaDao.save(clinica));
 
-        return "redirect:/listaclinicas";
+        return "redirect:/clinica/" + clinica.getId();
     }
 
 

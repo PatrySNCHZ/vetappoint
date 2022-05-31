@@ -23,8 +23,7 @@
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Email</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+
 
 
             </tr>
@@ -35,8 +34,6 @@
                 <td th:text="${vet.apellidos}"></td>
                 <td th:text="${vet.email}"></td>
 
-                <td><a th:href="@{/editar/veterinario/{id}(id=${vet.id})}">Editar</a></td>
-                <td><a th:href="@{/eliminar/veterinario/{id}(id=${vet.id})}">Eliminar</a></td>
             </tr>
             </tbody>
         </table>
