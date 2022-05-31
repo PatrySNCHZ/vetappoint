@@ -14,16 +14,19 @@
 </div>
 
 
-<div class="container col-lg-8">
+<div class="container col-lg-10">
 
-    <div th:each="mas: ${mascotas}" class="col-sm-3 card m-3 float-left" style="width: 25rem;" >
-        <img th:src="${mas.foto}" class="card-img-top" alt="...">
+    <div th:each="mas: ${mascotas}" class="col-sm-3 card m-3" style="width: 25rem;" >
         <div class="card-body">
             <p class="card-text" th:text="${mas.nombre}"></p>
             <a th:href="@{/mascota/{id}(id=${mas.id})}" class="card-link">Ver perfil mascota</a>
             <a th:href="@{/historialvet/mascota/{id}(id=${mas.id})}" class="card-link">Historial médico</a>
         </div>
+        <img th:src="${mas.foto}" class="card-img-top" alt="...">
+
     </div>
+
+
 </div>
 
 
@@ -40,6 +43,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<footer th:replace="plantillas/general :: footer"></footer>
+
 </body>
+<footer th:replace="plantillas/general :: footer"></footer>
 </html>

@@ -105,9 +105,6 @@ public class CitaController {
     public String guardar(@RequestParam(value ="fecha") LocalDate fecha, Cita cita, Model model){
 
 
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaF = sdf1.format(fecha);
-        cita.setFecha(LocalDate.parse(fechaF));
 
         citaDao.save(cita);
         return "redirect:/listacitas";

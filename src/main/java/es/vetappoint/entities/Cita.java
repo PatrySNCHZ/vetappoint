@@ -21,13 +21,9 @@ public class Cita implements Serializable {
     private Long id;
 
     @Column(name = "Fecha")
-    private LocalDate fecha;
+    private String fecha;
     @Column(name = "Hora")
-    private LocalDate hora;
-    @Column(name = "Fecha_solicitud")
-    private LocalDate fechaSolicitud;
-    @Column(name = "Hora_solicitud")
-    private LocalDate horaSolicitud;
+    private String hora;
 
     @Column(name = "creado_el", columnDefinition = "date DEFAULT (curdate())")
     @Temporal(TemporalType.DATE)
@@ -101,36 +97,20 @@ public class Cita implements Serializable {
         this.idVeterinario = idVeterinario;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public LocalDate getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(String hora) {
         this.hora = hora;
-    }
-
-    public LocalDate getFechaSolicitud() {
-        return fechaSolicitud;
-    }
-
-    public void setFechaSolicitud(LocalDate fechaSolicitud) {
-        this.fechaSolicitud = fechaSolicitud;
-    }
-
-    public LocalDate getHoraSolicitud() {
-        return horaSolicitud;
-    }
-
-    public void setHoraSolicitud(LocalDate horaSolicitud) {
-        this.horaSolicitud = horaSolicitud;
     }
 
     public Date getCreadoEl() {
@@ -151,8 +131,6 @@ public class Cita implements Serializable {
                 ", idVeterinario=" + idVeterinario +
                 ", fecha=" + fecha +
                 ", hora=" + hora +
-                ", fechaSolicitud=" + fechaSolicitud +
-                ", horaSolicitud=" + horaSolicitud +
                 ", creadoEl=" + creadoEl +
                 '}';
     }
