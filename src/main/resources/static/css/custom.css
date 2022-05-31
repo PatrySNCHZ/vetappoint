@@ -48,29 +48,29 @@ left_padding: 5%;}
 left_padding: 10%;}
 
 #cuerpo{
- text-align: justify;
+ text-align: center;
  text-justify: inter-word;
 padding-top: 20px;
-padding-right: 30%;
-padding-left: 30%;
+padding-right: 20%;
+padding-left: 20%;
+
 }
 #subtitulo{
 text-align: center;
 padding-top: 20px;
-padding-right: 20%;
-padding-left: 20%;
+padding-right: 15%;
+padding-left: 15%;
 }
 #titulo{
 text-align: center;
 padding-top: 20px;
-padding-right: 20%;
-padding-left: 20%;
+padding-right: 15%;
+padding-left: 15%;
 }
 #nombres{
 align: bottom;
 }
 #carousel{
-max-width: 60%;
-padding-right: 15%;
-padding-left: 15%;
+padding-right: 5%;
+padding-left: 5%;
 }
