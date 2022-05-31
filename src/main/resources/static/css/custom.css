@@ -20,6 +20,10 @@ padding-left: 40%;
 #button{ width: 200px;
     padding-left 30%;
 }
+
+#buttonr{
+ width: 270px;
+}
 #check{
 
     padding-top: 10px;
@@ -73,4 +77,7 @@ align: bottom;
 #carousel{
 padding-right: 5%;
 padding-left: 5%;
+}
+.card{
+float: left;
 }

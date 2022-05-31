@@ -62,5 +62,10 @@ public class LoginController {
         return "inicio";
 
     }
+    @GetMapping("/recuperarpass")
+    public String recuperar(Model modelo){
+        return "recuperar_contraseña";
+
+    }
 
 }
