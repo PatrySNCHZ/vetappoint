@@ -16,6 +16,7 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -82,7 +83,7 @@ public class CitaController {
     public String listarCitasPorUsuario(@PathVariable("id") Long id, Model modelo) {
         Usuario usuario = usuarioDao.findOne(id);
         modelo.addAttribute("titulopes", "Tus citas");
-        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
+        modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + " aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
         return "citas/lista_citas";
     }
@@ -101,15 +102,11 @@ public class CitaController {
     }
 
     @PostMapping(value ="/guardar/cita")
-    public String guardar(@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha, Cita cita, Model model){
-
-
+    public String guardar(@RequestParam(value ="fecha") LocalDate fecha, Cita cita, Model model){
 
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         String fechaF = sdf1.format(fecha);
-
-
         cita.setFecha(LocalDate.parse(fechaF));
 
         citaDao.save(cita);

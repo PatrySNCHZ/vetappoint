@@ -21,11 +21,10 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="" class="img-circle img-responsive"> </div>
 
       <div class=" col-md-9 col-lg-9 ">
         <table th:object="${clinica}" class="table table-user-information">
-          <h3 class="panel-title" th:text="${clinica.nombre}"></h3>
+          
           <tbody>
           <tr>
             <td>Nombre:</td>
@@ -84,14 +83,17 @@
 
           </tbody>
         </table>
-
+<!--
         <div>
           <form action="/favorita" method="POST">
             <input type="submit" class="btn btn-primary" value="Añadir favorita"/>
           </form>
-        <div/>
+        <div/> -->
         <div >
-        <a th:href="@{/editar/clinica/{id}(id=${clinica.id})}" class="btn btn-primary">Editar perfil</a>
+        <a th:href="@{/editar/clinica/{id}(id=${clinica.id})}" class="btn btn-info m-3">Editar perfil</a>
+          <a th:href="@{/citas/clinica/{id}(id=${clinica.id})}" class="btn btn-info m-3">Nuestras citas</a>
+          <a th:href="@{/opinion/clinica/{id}(id=${clinica.id})}" class="btn btn-info m-3">Opiniones sobre nosotros</a>
+          <a th:href="@{/registrar/mascota}" class="btn btn-info m-3">Dar de alta una mascota</a>
         </div>
       </div>
     </div>

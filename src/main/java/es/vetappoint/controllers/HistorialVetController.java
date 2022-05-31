@@ -57,7 +57,7 @@ public class HistorialVetController {
             modelo.put("historialVet", historialVet);
             return "form_historialvet";
         } else {
-            return "redirect:/listahistorialvet";
+            return "redirect:/listahistorialesvet";
         }
     }
 

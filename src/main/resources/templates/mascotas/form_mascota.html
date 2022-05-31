@@ -20,80 +20,84 @@
         </ul>
     </div>
     <form th:action="@{/guardar/mascota}" th:object="${mascota}" method="post">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre</label>
+
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Nombre</label>
                 <input type="text" th:field="*{nombre}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Especie</label>
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Especie</label>
                 <input type="text" th:field="*{especie}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('especie')}" th:errors="*{especie}"></small>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Raza</label>
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Raza</label>
                 <input type="text" th:field="*{raza}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('raza')}" th:errors="*{raza}"></small>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Edad</label>
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Edad</label>
                 <input type="text" th:field="*{edad}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Descripción</label>
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Descripción</label>
                 <input type="text" th:field="*{descripcion}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></small>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Chip</label>
+
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Chip</label>
                 <input disabled type="text" th:field="*{chip}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('chip')}" th:errors="*{chip}"></small>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Género</label>
+
+
+
             <div class="col-sm-6">
+                <label class="col-sm-2 col-form-label">Género</label>
                 <input type="text" th:field="*{genero}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></small>
             </div>
-        </div>
-        <form hidden="" action="fileUpload" method="post" enctype="multipart/form-data">
+
+        <!-- <form hidden="" action="fileUpload" method="post" enctype="multipart/form-data">
             <p>Seleccionar archivo:<input type="file" name="file" /></p>
             <p><input type="submit" value="Enviar"/></p>
-        </form>
+        </form> -->
         <div class="form-group row">
             <div class="col-sm-6">
                 <input type="hidden" th:field="*{id}" id="mascotaId">
-                <input type="submit" value="Editar" class="btn btn-primary" />
+                <input type="submit" value="Editar" class="btn btn-info m-3" />
             </div>
         </div>
 

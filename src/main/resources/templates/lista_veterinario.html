@@ -6,8 +6,8 @@
 <header th:replace="plantillas/general :: header"></header>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Bienvenido...</h1>
-        <p class="lead">Aquí le mostramos nuestros veterinarios disponibles</p>
+        <h1 class="display-4">Nuestros veterinarios</h1>
+        <p class="lead"></p>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
 <div class="container">
 
     <div class="container">
-        <h1 th:text="${titulo}"></h1>
+
 
         <table class="table table-striped">
             <thead>
@@ -23,8 +23,7 @@
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Email</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+
 
 
             </tr>
@@ -35,8 +34,6 @@
                 <td th:text="${vet.apellidos}"></td>
                 <td th:text="${vet.email}"></td>
 
-                <td><a th:href="@{/editar/veterinario/{id}(id=${vet.id})}">Editar</a></td>
-                <td><a th:href="@{/eliminar/veterinario/{id}(id=${vet.id})}">Eliminar</a></td>
             </tr>
             </tbody>
         </table>

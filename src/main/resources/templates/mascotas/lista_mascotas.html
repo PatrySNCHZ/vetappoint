@@ -24,7 +24,7 @@
         <div class="card-body">
             <p class="card-text" th:text="${mas.nombre}"></p>
             <a th:href="@{/mascota/{id}(id=${mas.id})}" class="card-link">Ver perfil mascota</a>
-            <a href="#" class="card-link">Historial médico</a>
+            <a th:href="@{/historialvet/mascota/{id}(id=${mas.id})}" class="card-link">Historial médico</a>
         </div>
     </div>
 </div>
