@@ -45,7 +45,7 @@
 
             <div class="col-sm-6">
                 <label class="col-sm-2 col-form-label">Clave</label>
-                <input type="text" th:field="*{clave}" class="form-control"
+                <input type="password" th:field="*{clave}" class="form-control"
                        th:errorclass="'form-control alert-danger'" /> <small
                     class="form-text text-danger"
                     th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></small>
