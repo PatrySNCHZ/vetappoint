@@ -8,12 +8,17 @@ import es.vetappoint.entities.Clinica;
 import es.vetappoint.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Controller
@@ -37,7 +42,7 @@ public class CitaController {
         modelo.addAttribute("titulopest", "Cita");
         modelo.addAttribute("titulo", "Listado de citas");
         modelo.addAttribute("citas", citaDao.findAll());
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping({"/cita/{id}", "/cita"})
@@ -48,7 +53,7 @@ public class CitaController {
         if (id > 0L) {
             cita = this.citaDao.findOne(id);
             modelo.put("cita", cita);
-            return "solicitar_cita";
+            return "citas/solicitar_cita";
         } else {
             return "redirect:/listacitas";
         }
@@ -70,7 +75,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Citas de hoy");
         modelo.addAttribute("titulo", "Hola," + clinica.getNombre() + "estas son tus proximas citas");
         modelo.addAttribute("citas", citaDao.listByClinica(clinica));
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping("/citas/usuario/{id}")
@@ -79,7 +84,7 @@ public class CitaController {
         modelo.addAttribute("titulopes", "Tus citas");
         modelo.addAttribute("titulo", "Hola, " + usuario.getNombre() + "aquí están tus citas");
         modelo.addAttribute("citas", citaDao.listByUsuario(usuario));
-        return "lista_citas";
+        return "citas/lista_citas";
     }
 
     @GetMapping("/nuevacita")
@@ -96,7 +101,16 @@ public class CitaController {
     }
 
     @PostMapping(value ="/guardar/cita")
-    public String guardar( Cita cita, Model model){
+    public String guardar(@RequestParam("fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha, Cita cita, Model model){
+
+
+
+
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaF = sdf1.format(fecha);
+
+
+        cita.setFecha(LocalDate.parse(fechaF));
 
         citaDao.save(cita);
         return "redirect:/listacitas";

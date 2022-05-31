@@ -25,7 +25,7 @@ public class LoginController {
     private ClinicaDao clinicaDao;
 
     @GetMapping("/login")
-    public String inicio(Model modelo){
+    public String login(Model modelo){
         modelo.addAttribute("titulopest", "Acceso");
         modelo.addAttribute("titulo", "Identifíquese para acceder");
         return "login";
@@ -58,7 +58,7 @@ public class LoginController {
     }
 
     @GetMapping("/")
-    public String inicio_1(Model modelo){
+    public String inicio(Model modelo){
 
         return "inicio";
     }
